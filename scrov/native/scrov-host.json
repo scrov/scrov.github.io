@@ -1,9 +1,0 @@
-{
-  "name": "scrov_host",
-  "description": "SCROV Node native PTY host",
-  "path": "/data/data/com.termux/files/home/docs/scrov/native/scrov-host.js",
-  "type": "stdio",
-  "allowed_extensions": [
-    "scrov-workspace@example.org"
-  ]
-}
