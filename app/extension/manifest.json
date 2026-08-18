@@ -1,0 +1,63 @@
+{
+  "manifest_version": 2,
+  "name": "SCROV Workspace",
+  "version": "1.0.0",
+  "description": "GitHub Pages developer workspace with Firefox userscripts and native PTY integration.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "scrov-workspace@example.org",
+      "strict_min_version": "109.0"
+    }
+  },
+  "permissions": [
+    "userScripts"
+    "userScripts_legacy"
+    "webNavigation"
+    "browserAction"
+    "webRequest"
+    "omnibox"
+    "scripting"
+    "proxy"
+    "runtime"
+    "devtools"
+    "dom"
+    "contentScripts"
+    "activeTab",
+    "tabs",
+    "storage",
+    "contextMenus",
+    "clipboardRead",
+    "clipboardWrite",
+    "nativeMessaging",
+    "*://localhost/*",
+    "*://127.0.0.1/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_title": "SCROV",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "user_scripts": {
+    "api_script": "userscript-api.js"
+  },
+  "web_accessible_resources": [
+    "userscript-api.js"
+  ]
+}

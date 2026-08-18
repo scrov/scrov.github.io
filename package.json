@@ -1,20 +1,31 @@
 {
-  "name": "scrov-workspace",
-  "version": "1.0.0",
+  "name": "scrov-home",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "deploy": "vite build"
+    "dev": "concurrently \"shadow-cljs watch client server\" \"node target/server.js\"",
+    "build": "shadow-cljs release client server",
+    "start": "node target/server.js",
+    "fennel": "fennel --compile fennel/api.fnl lua/api.lua",
+    "melange": "dune build",
+    "openresty:test": "sudo openresty -t",
+    "openresty:reload": "sudo openresty -s reload"
   },
   "dependencies": {
-    "jquery": "^3.7.1",
-    "xterm": "^5.3.0",
-    "xterm-addon-fit": "^0.8.0"
+    "clipboardy": "^4.0.0",
+    "fengari": "^0.1.5",
+    "fengari-interop": "^0.1.4",
+    "fengari-web": "^0.1.4",
+    "node-gyp": "^13.0.1",
+    "plantuml": "^0.0.2",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "xterm": "^5.3.0"
   },
   "devDependencies": {
-    "vite": "^7.1.0"
+    "@wdio/browser-runner": "^9.31.1",
+    "concurrently": "^9.2.1",
+    "shadow-cljs": "^2.28.23",
+    "shx": "^0.4.0"
   }
 }

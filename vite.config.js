@@ -1,5 +1,14 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-  base: "/"
+  root: ".",
+  publicDir: "public",
+  server: {
+    port: 8020,
+    host: "0.0.0.0"
+  },
+  build: {
+    outDir: "dist",
+    emptyOutDir: false
+  }
 });
