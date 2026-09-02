@@ -1,1 +1,0 @@
-{"version":3,"sources":["scrov/server.cljs"],"mappings":";AAEA,0BAAA,1BAAMA;AAAN,AACE,mBAAA,ZAACC;;AAGH,CAAMC,oCAAcF","names":["scrov.server/main!","js/console.log","cljs.core/*main-cli-fn*"],"sourcesContent":["(ns scrov.server)\n\n(defn main! []\n  (js/console.log\n   \"SCROV server runtime loaded\"))\n\n(set! *main-cli-fn* main!)\n"]}

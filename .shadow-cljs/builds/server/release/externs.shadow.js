@@ -1,1 +1,0 @@
-/** @const {ShadowJS} */ var module;

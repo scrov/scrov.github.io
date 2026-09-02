@@ -1,0 +1,345 @@
+git/
+├── .github/
+│   ├── workflows/
+│   │   ├── ci.yml
+│   │   ├── security.yml
+│   │   ├── docker.yml
+│   │   └── release.yml
+│   ├── dependabot.yml
+│   └── CODEOWNERS
+│
+├── apps/
+│   ├── web/
+│   │   ├── src/
+│   │   │   ├── components/
+│   │   │   ├── layouts/
+│   │   │   ├── pages/
+│   │   │   ├── workers/
+│   │   │   └── lib/
+│   │   ├── public/
+│   │   ├── astro.config.mjs
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   │
+│   ├── admin/
+│   │   ├── src/
+│   │   │   ├── app/
+│   │   │   ├── components/
+│   │   │   ├── features/
+│   │   │   ├── services/
+│   │   │   └── state/
+│   │   ├── angular.json
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   │
+│   ├── extension/
+│   │   ├── src/
+│   │   │   ├── background/
+│   │   │   ├── content/
+│   │   │   ├── popup/
+│   │   │   ├── options/
+│   │   │   ├── sidepanel/
+│   │   │   └── devtools/
+│   │   ├── public/
+│   │   ├── manifest.json
+│   │   └── package.json
+│   │
+│   └── docs/
+│       ├── src/
+│       │   ├── content/
+│       │   ├── layouts/
+│       │   ├── components/
+│       │   └── pages/
+│       ├── astro.config.mjs
+│       └── package.json
+│
+├── services/
+│   ├── gateway/
+│   │   ├── src/
+│   │   │   ├── routes/
+│   │   │   ├── middleware/
+│   │   │   ├── controllers/
+│   │   │   ├── services/
+│   │   │   └── schemas/
+│   │   ├── server.js
+│   │   └── package.json
+│   │
+│   ├── api/
+│   │   ├── src/
+│   │   │   ├── routes/
+│   │   │   ├── controllers/
+│   │   │   ├── domain/
+│   │   │   ├── repositories/
+│   │   │   ├── services/
+│   │   │   └── schemas/
+│   │   └── package.json
+│   │
+│   ├── strapi/
+│   │   ├── src/
+│   │   │   ├── api/
+│   │   │   ├── components/
+│   │   │   ├── extensions/
+│   │   │   └── middlewares/
+│   │   ├── config/
+│   │   └── package.json
+│   │
+│   ├── realtime/
+│   │   ├── src/
+│   │   │   ├── channels/
+│   │   │   ├── sessions/
+│   │   │   ├── presence/
+│   │   │   └── telemetry/
+│   │   └── package.json
+│   │
+│   ├── workers/
+│   │   ├── src/
+│   │   │   ├── consumers/
+│   │   │   ├── producers/
+│   │   │   ├── jobs/
+│   │   │   └── handlers/
+│   │   └── package.json
+│   │
+│   ├── go/
+│   │   ├── cmd/
+│   │   ├── internal/
+│   │   ├── pkg/
+│   │   ├── schemas/
+│   │   ├── go.mod
+│   │   └── go.sum
+│   │
+│   ├── rust/
+│   │   ├── src/
+│   │   ├── crates/
+│   │   ├── tests/
+│   │   └── Cargo.toml
+│   │
+│   ├── gleam/
+│   │   ├── src/
+│   │   ├── test/
+│   │   └── gleam.toml
+│   │
+│   ├── java/
+│   │   ├── src/
+│   │   │   ├── main/
+│   │   │   └── test/
+│   │   └── pom.xml
+│   │
+│   ├── php/
+│   │   ├── src/
+│   │   ├── tests/
+│   │   ├── composer.json
+│   │   └── phpunit.xml
+│   │
+│   ├── hack/
+│   │   ├── src/
+│   │   ├── tests/
+│   │   └── hhvm.hhconfig
+│   │
+│   ├── racket/
+│   │   └── src/
+│   │
+│   └── raku/
+│       └── src/
+│
+├── packages/
+│   ├── contracts/
+│   │   ├── src/
+│   │   │   ├── api/
+│   │   │   ├── events/
+│   │   │   ├── telemetry/
+│   │   │   └── sync/
+│   │   ├── schemas/
+│   │   └── package.json
+│   │
+│   ├── sdk/
+│   │   ├── src/
+│   │   │   ├── http/
+│   │   │   ├── websocket/
+│   │   │   ├── sync/
+│   │   │   └── events/
+│   │   └── package.json
+│   │
+│   ├── ui/
+│   │   ├── src/
+│   │   │   ├── components/
+│   │   │   ├── primitives/
+│   │   │   └── themes/
+│   │   └── package.json
+│   │
+│   ├── wasm/
+│   │   ├── src/
+│   │   ├── Cargo.toml
+│   │   └── package.json
+│   │
+│   └── config/
+│       ├── src/
+│       └── package.json
+│
+├── messaging/
+│   ├── rabbitmq/
+│   │   ├── exchanges/
+│   │   ├── queues/
+│   │   ├── bindings/
+│   │   ├── policies/
+│   │   └── definitions.json
+│   │
+│   └── redis/
+│       ├── config/
+│       ├── scripts/
+│       └── schemas/
+│
+├── infra/
+│   ├── nginx/
+│   │   ├── nginx.conf
+│   │   ├── conf.d/
+│   │   ├── snippets/
+│   │   └── sites/
+│   │
+│   ├── docker/
+│   │   ├── base/
+│   │   ├── gateway/
+│   │   ├── api/
+│   │   ├── realtime/
+│   │   ├── workers/
+│   │   ├── strapi/
+│   │   └── compose/
+│   │
+│   ├── kubernetes/
+│   │   ├── namespaces/
+│   │   ├── config/
+│   │   ├── secrets/
+│   │   ├── deployments/
+│   │   ├── services/
+│   │   ├── ingress/
+│   │   ├── jobs/
+│   │   └── network-policies/
+│   │
+│   ├── argocd/
+│   │   ├── projects/
+│   │   ├── applications/
+│   │   ├── applicationsets/
+│   │   └── repositories/
+│   │
+│   ├── terraform/
+│   │   ├── modules/
+│   │   │   ├── network/
+│   │   │   ├── compute/
+│   │   │   ├── database/
+│   │   │   ├── kubernetes/
+│   │   │   └── registry/
+│   │   ├── environments/
+│   │   │   ├── dev/
+│   │   │   ├── staging/
+│   │   │   └── production/
+│   │   └── versions.tf
+│   │
+│   └── ansible/
+│       ├── inventories/
+│       │   ├── dev/
+│       │   ├── staging/
+│       │   └── production/
+│       ├── playbooks/
+│       ├── roles/
+│       └── group_vars/
+│
+├── registry/
+│   └── verdaccio/
+│       ├── config/
+│       │   └── config.yaml
+│       └── storage/
+│
+├── ci/
+│   ├── Jenkinsfile
+│   ├── pipelines/
+│   ├── scripts/
+│   └── agents/
+│
+├── scripts/
+│   ├── bootstrap.sh
+│   ├── doctor.sh
+│   ├── build.sh
+│   ├── test.sh
+│   ├── lint.sh
+│   ├── security.sh
+│   ├── dev.sh
+│   ├── release.sh
+│   └── clean.sh
+│
+├── docs/
+│   ├── mdx/
+│   │   ├── index.mdx
+│   │   ├── architecture/
+│   │   ├── api/
+│   │   ├── frontend/
+│   │   ├── backend/
+│   │   ├── messaging/
+│   │   ├── infrastructure/
+│   │   ├── security/
+│   │   └── operations/
+│   │
+│   ├── wiki/
+│   │   ├── Home.md
+│   │   ├── Architecture.md
+│   │   ├── API.md
+│   │   ├── Development.md
+│   │   ├── Deployment.md
+│   │   ├── Operations.md
+│   │   └── Troubleshooting.md
+│   │
+│   ├── api/
+│   │   ├── generated/
+│   │   ├── openapi.json
+│   │   ├── asyncapi.yaml
+│   │   └── jsdoc/
+│   │
+│   └── architecture/
+│       ├── topology.mdx
+│       ├── data-flow.mdx
+│       ├── event-flow.mdx
+│       ├── deployment-flow.mdx
+│       └── security-boundaries.mdx
+│
+├── templates/
+│   └── ejs/
+│       ├── layout.ejs
+│       ├── page.ejs
+│       ├── api.ejs
+│       ├── sidebar.ejs
+│       ├── header.ejs
+│       └── footer.ejs
+│
+├── tests/
+│   ├── integration/
+│   ├── contract/
+│   ├── e2e/
+│   ├── load/
+│   └── security/
+│
+├── config/
+│   ├── environments/
+│   │   ├── development.env
+│   │   ├── staging.env
+│   │   └── production.env
+│   ├── eslint/
+│   ├── prettier/
+│   └── typescript/
+│
+├── .dockerignore
+├── .editorconfig
+├── .env.example
+├── .gitignore
+├── .npmrc
+├── .prettierignore
+├── Dockerfile
+├── docker-compose.yml
+├── jsdoc.json
+├── openapi.yaml
+├── asyncapi.yaml
+├── package.json
+├── pnpm-workspace.yaml
+├── README.md
+├── CONTRIBUTING.md
+├── SECURITY.md
+├── CHANGELOG.md
+├── LICENSE
+└── sitemap.xml

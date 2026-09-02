@@ -1,4 +1,0 @@
-(executable
- (name Scrov)
- (modes melange)
- (libraries melange))
