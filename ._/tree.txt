@@ -1,0 +1,144 @@
+git/
+├── nx.json
+├── package.json
+├── pnpm-workspace.yaml
+├── tsconfig.base.json
+├── eslint.config.mjs
+├── nx.json
+├── project.json
+│
+├── apps/
+│   ├── web/project.json
+│   ├── admin/project.json
+│   ├── extension/project.json
+│   ├── docs/project.json
+│   └── storybook/project.json
+git/
+├── .nx/
+│   ├── cache/
+│   └── workspace-data/
+│
+├── nx.json
+│
+├── apps/
+│   ├── web/
+│   │   └── src/
+│   │       ├── state/
+│   │       │   ├── redux/
+│   │       │   ├── rxjs/
+│   │       │   └── selectors/
+│   │       ├── db/
+│   │       │   ├── dexie/
+│   │       │   └── watermelon/
+│   │       └── streams/
+│   │
+│   ├── admin/
+│   │   └── src/
+│   │       ├── state/
+│   │       │   ├── redux/
+│   │       │   ├── rxjs/
+│   │       │   └── selectors/
+│   │       └── streams/
+│   │
+│   ├── extension/
+│   │   └── src/
+│   │       ├── state/
+│   │       │   ├── redux/
+│   │       │   └── rxjs/
+│   │       ├── db/
+│   │       │   └── dexie/
+│   │       └── streams/
+│   │
+│   ├── storybook/
+│   │   └── src/
+│   │       ├── state/
+│   │       └── fixtures/
+│   │
+│   └── flutter/
+│
+├── packages/
+│   ├── state/
+│   │   ├── src/
+│   │   │   ├── redux/
+│   │   │   │   ├── store/
+│   │   │   │   ├── slices/
+│   │   │   │   ├── reducers/
+│   │   │   │   ├── actions/
+│   │   │   │   ├── selectors/
+│   │   │   │   └── middleware/
+│   │   │   │
+│   │   │   ├── rxjs/
+│   │   │   │   ├── observables/
+│   │   │   │   ├── subjects/
+│   │   │   │   ├── operators/
+│   │   │   │   ├── effects/
+│   │   │   │   └── streams/
+│   │   │   │
+│   │   │   ├── events/
+│   │   │   └── selectors/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── dexie/
+│   │   ├── src/
+│   │   │   ├── database/
+│   │   │   ├── schemas/
+│   │   │   ├── tables/
+│   │   │   ├── repositories/
+│   │   │   ├── transactions/
+│   │   │   ├── migrations/
+│   │   │   ├── live-queries/
+│   │   │   └── sync/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── watermelondb/
+│   │   ├── src/
+│   │   │   ├── database/
+│   │   │   ├── models/
+│   │   │   ├── collections/
+│   │   │   ├── migrations/
+│   │   │   ├── adapters/
+│   │   │   └── sync/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── rxjs/
+│   │   ├── src/
+│   │   │   ├── operators/
+│   │   │   ├── observables/
+│   │   │   ├── subjects/
+│   │   │   ├── schedulers/
+│   │   │   ├── streams/
+│   │   │   └── interop/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── redux/
+│   │   ├── src/
+│   │   │   ├── store/
+│   │   │   ├── slices/
+│   │   │   ├── reducers/
+│   │   │   ├── actions/
+│   │   │   ├── selectors/
+│   │   │   ├── middleware/
+│   │   │   └── devtools/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+├── tools/
+    ├── nx/
+    │   ├── generators/
+    │   ├── executors/
+    │   ├── plugins/
+    │   └── presets/
+    │
+    ├── workspace/
+    │   ├── generators/
+    │   ├── scripts/
+    │   └── graph/
+    │
+    └── testing/
+        ├── fixtures/
+        ├── mocks/
+        └── utilities/

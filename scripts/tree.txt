@@ -1,0 +1,896 @@
+git/
+├── .github/
+│   ├── workflows/
+│   │   ├── ci.yml
+│   │   ├── security.yml
+│   │   ├── docker.yml
+│   │   ├── release.yml
+│   │   ├── cloudflare.yml
+│   │   ├── kubernetes.yml
+│   │   ├── terraform.yml
+│   │   └── mobile.yml
+│   ├── dependabot.yml
+│   └── CODEOWNERS
+│
+├── apps/
+│   ├── web/
+│   │   ├── src/
+│   │   │   ├── components/
+│   │   │   ├── layouts/
+│   │   │   ├── pages/
+│   │   │   ├── workers/
+│   │   │   ├── lib/
+│   │   │   ├── hooks/
+│   │   │   ├── stores/
+│   │   │   ├── api/
+│   │   │   ├── db/
+│   │   │   ├── sync/
+│   │   │   └── console/
+│   │   ├── public/
+│   │   ├── astro.config.mjs
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   │
+│   ├── admin/
+│   │   ├── src/
+│   │   │   ├── app/
+│   │   │   ├── components/
+│   │   │   ├── features/
+│   │   │   ├── services/
+│   │   │   ├── state/
+│   │   │   ├── api/
+│   │   │   └── forms/
+│   │   ├── angular.json
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   │
+│   ├── extension/
+│   │   ├── src/
+│   │   │   ├── background/
+│   │   │   ├── content/
+│   │   │   ├── popup/
+│   │   │   ├── options/
+│   │   │   ├── sidepanel/
+│   │   │   ├── devtools/
+│   │   │   ├── storage/
+│   │   │   ├── console/
+│   │   │   └── bridge/
+│   │   ├── public/
+│   │   ├── manifest.json
+│   │   └── package.json
+│   │
+│   ├── docs/
+│   │   ├── src/
+│   │   │   ├── content/
+│   │   │   ├── layouts/
+│   │   │   ├── components/
+│   │   │   └── pages/
+│   │   ├── astro.config.mjs
+│   │   └── package.json
+│   │
+│   ├── storybook/
+│   │   ├── .storybook/
+│   │   │   ├── main.ts
+│   │   │   ├── preview.ts
+│   │   │   └── manager.ts
+│   │   ├── src/
+│   │   │   ├── components/
+│   │   │   ├── stories/
+│   │   │   ├── fixtures/
+│   │   │   └── decorators/
+│   │   ├── public/
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   │
+│   └── flutter/
+│       ├── lib/
+│       │   ├── app/
+│       │   ├── screens/
+│       │   ├── widgets/
+│       │   ├── services/
+│       │   ├── models/
+│       │   ├── state/
+│       │   ├── sync/
+│       │   └── api/
+│       ├── test/
+│       ├── android/
+│       ├── ios/
+│       ├── web/
+│       ├── pubspec.yaml
+│       └── analysis_options.yaml
+│
+├── runtimes/
+│   ├── rescript/
+│   │   ├── src/
+│   │   │   ├── Components/
+│   │   │   ├── Domain/
+│   │   │   ├── Api/
+│   │   │   ├── State/
+│   │   │   └── Workers/
+│   │   ├── package.json
+│   │   └── rescript.json
+│   │
+│   ├── clojurescript/
+│   │   ├── src/
+│   │   │   ├── scrov/
+│   │   │   ├── components/
+│   │   │   ├── state/
+│   │   │   ├── events/
+│   │   │   └── workers/
+│   │   ├── resources/
+│   │   ├── deps.edn
+│   │   └── shadow-cljs.edn
+│   │
+│   ├── scala-js/
+│   │   ├── src/
+│   │   │   ├── main/
+│   │   │   │   └── scala/
+│   │   │   └── test/
+│   │   │       └── scala/
+│   │   ├── build.sbt
+│   │   └── project/
+│   │
+│   ├── kotlin/
+│   │   ├── src/
+│   │   │   ├── commonMain/
+│   │   │   ├── jsMain/
+│   │   │   ├── jvmMain/
+│   │   │   └── commonTest/
+│   │   ├── build.gradle.kts
+│   │   ├── settings.gradle.kts
+│   │   └── gradle.properties
+│   │
+│   ├── fennel/
+│   │   ├── src/
+│   │   │   ├── app/
+│   │   │   ├── routes/
+│   │   │   ├── middleware/
+│   │   │   ├── commands/
+│   │   │   └── workers/
+│   │   ├── test/
+│   │   └── README.md
+│   │
+│   └── bash/
+│       ├── bin/
+│       ├── lib/
+│       ├── commands/
+│       ├── completion/
+│       ├── hooks/
+│       ├── tests/
+│       └── README.md
+│
+├── services/
+│   ├── node/
+│   │   ├── src/
+│   │   │   ├── api/
+│   │   │   ├── cli/
+│   │   │   ├── workers/
+│   │   │   ├── services/
+│   │   │   ├── adapters/
+│   │   │   └── runtime/
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   │
+│   ├── gateway/
+│   │   ├── src/
+│   │   │   ├── routes/
+│   │   │   ├── middleware/
+│   │   │   ├── controllers/
+│   │   │   ├── services/
+│   │   │   ├── schemas/
+│   │   │   └── adapters/
+│   │   ├── server.js
+│   │   └── package.json
+│   │
+│   ├── express/
+│   │   ├── src/
+│   │   │   ├── routes/
+│   │   │   ├── controllers/
+│   │   │   ├── middleware/
+│   │   │   ├── services/
+│   │   │   └── adapters/
+│   │   ├── server.js
+│   │   └── package.json
+│   │
+│   ├── crud/
+│   │   ├── src/
+│   │   │   ├── controllers/
+│   │   │   ├── services/
+│   │   │   ├── repositories/
+│   │   │   ├── entities/
+│   │   │   ├── schemas/
+│   │   │   ├── validators/
+│   │   │   ├── serializers/
+│   │   │   └── routes/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── strapi/
+│   │   ├── src/
+│   │   │   ├── api/
+│   │   │   ├── components/
+│   │   │   ├── extensions/
+│   │   │   ├── middlewares/
+│   │   │   └── plugins/
+│   │   ├── config/
+│   │   └── package.json
+│   │
+│   ├── lapis/
+│   │   ├── app/
+│   │   ├── config/
+│   │   ├── routes/
+│   │   ├── middleware/
+│   │   ├── models/
+│   │   ├── views/
+│   │   ├── migrations/
+│   │   └── config.lua
+│   │
+│   ├── handlebars/
+│   │   ├── src/
+│   │   │   ├── layouts/
+│   │   │   ├── partials/
+│   │   │   ├── helpers/
+│   │   │   ├── views/
+│   │   │   └── data/
+│   │   ├── templates/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── realtime/
+│   │   ├── src/
+│   │   │   ├── channels/
+│   │   │   ├── sessions/
+│   │   │   ├── presence/
+│   │   │   ├── telemetry/
+│   │   │   └── websocket/
+│   │   └── package.json
+│   │
+│   ├── workers/
+│   │   ├── src/
+│   │   │   ├── consumers/
+│   │   │   ├── producers/
+│   │   │   ├── jobs/
+│   │   │   ├── handlers/
+│   │   │   └── schedulers/
+│   │   └── package.json
+│   │
+│   ├── pty/
+│   │   ├── src/
+│   │   │   ├── sessions/
+│   │   │   ├── processes/
+│   │   │   ├── terminals/
+│   │   │   └── websocket/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── shell/
+│   │   ├── src/
+│   │   │   ├── commands/
+│   │   │   ├── parser/
+│   │   │   ├── executor/
+│   │   │   ├── sessions/
+│   │   │   └── adapters/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── terminal/
+│   │   ├── src/
+│   │   │   ├── sessions/
+│   │   │   ├── tmux/
+│   │   │   ├── xterm/
+│   │   │   └── pty/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── notebook/
+│   │   ├── src/
+│   │   │   ├── cells/
+│   │   │   ├── kernels/
+│   │   │   ├── sessions/
+│   │   │   ├── execution/
+│   │   │   └── storage/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── search/
+│   │   ├── src/
+│   │   │   ├── crawler/
+│   │   │   ├── indexer/
+│   │   │   ├── queries/
+│   │   │   ├── ranking/
+│   │   │   └── adapters/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── go/
+│   │   ├── cmd/
+│   │   ├── internal/
+│   │   ├── pkg/
+│   │   ├── schemas/
+│   │   ├── go.mod
+│   │   └── go.sum
+│   │
+│   ├── rust/
+│   │   ├── src/
+│   │   ├── crates/
+│   │   ├── tests/
+│   │   └── Cargo.toml
+│   │
+│   ├── gleam/
+│   │   ├── src/
+│   │   ├── test/
+│   │   └── gleam.toml
+│   │
+│   ├── java/
+│   │   ├── src/
+│   │   │   ├── main/
+│   │   │   └── test/
+│   │   └── pom.xml
+│   │
+│   ├── php/
+│   │   ├── src/
+│   │   ├── tests/
+│   │   ├── composer.json
+│   │   └── phpunit.xml
+│   │
+│   ├── hack/
+│   │   ├── src/
+│   │   ├── tests/
+│   │   └── hhvm.hhconfig
+│   │
+│   ├── racket/
+│   │   └── src/
+│   │
+│   └── raku/
+│       └── src/
+│
+├── packages/
+│   ├── contracts/
+│   │   ├── src/
+│   │   │   ├── api/
+│   │   │   ├── events/
+│   │   │   ├── telemetry/
+│   │   │   ├── sync/
+│   │   │   └── crud/
+│   │   ├── schemas/
+│   │   └── package.json
+│   │
+│   ├── sdk/
+│   │   ├── src/
+│   │   │   ├── http/
+│   │   │   ├── websocket/
+│   │   │   ├── sync/
+│   │   │   ├── events/
+│   │   │   ├── crud/
+│   │   │   └── terminal/
+│   │   └── package.json
+│   │
+│   ├── ui/
+│   │   ├── src/
+│   │   │   ├── components/
+│   │   │   ├── primitives/
+│   │   │   ├── themes/
+│   │   │   ├── forms/
+│   │   │   ├── terminal/
+│   │   │   ├── editor/
+│   │   │   └── console/
+│   │   └── package.json
+│   │
+│   ├── tailwind/
+│   │   ├── src/
+│   │   │   ├── tokens/
+│   │   │   ├── themes/
+│   │   │   ├── plugins/
+│   │   │   └── utilities/
+│   │   ├── tailwind.config.ts
+│   │   └── package.json
+│   │
+│   ├── database/
+│   │   ├── src/
+│   │   │   ├── client/
+│   │   │   ├── models/
+│   │   │   ├── repositories/
+│   │   │   ├── transactions/
+│   │   │   └── migrations/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── orm/
+│   │   ├── prisma/
+│   │   │   ├── schema.prisma
+│   │   │   └── migrations/
+│   │   ├── src/
+│   │   │   ├── client/
+│   │   │   ├── models/
+│   │   │   ├── repositories/
+│   │   │   ├── queries/
+│   │   │   └── transactions/
+│   │   ├── prisma.config.ts
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── watermelondb/
+│   │   ├── src/
+│   │   │   ├── database/
+│   │   │   ├── models/
+│   │   │   ├── collections/
+│   │   │   ├── migrations/
+│   │   │   ├── adapters/
+│   │   │   └── sync/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── redis/
+│   │   ├── src/
+│   │   │   ├── client/
+│   │   │   ├── cache/
+│   │   │   ├── pubsub/
+│   │   │   ├── streams/
+│   │   │   ├── locks/
+│   │   │   ├── sessions/
+│   │   │   └── rate-limit/
+│   │   ├── scripts/
+│   │   ├── schemas/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── node-pty/
+│   │   ├── src/
+│   │   │   ├── sessions/
+│   │   │   ├── processes/
+│   │   │   └── terminals/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── shell-js/
+│   │   ├── src/
+│   │   │   ├── parser/
+│   │   │   ├── commands/
+│   │   │   ├── runtime/
+│   │   │   └── adapters/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── xterm/
+│   │   ├── src/
+│   │   │   ├── terminal/
+│   │   │   ├── addons/
+│   │   │   ├── websocket/
+│   │   │   └── themes/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── monaco/
+│   │   ├── src/
+│   │   │   ├── editor/
+│   │   │   ├── models/
+│   │   │   ├── languages/
+│   │   │   ├── workers/
+│   │   │   └── commands/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── tmux/
+│   │   ├── src/
+│   │   │   ├── sessions/
+│   │   │   ├── panes/
+│   │   │   ├── windows/
+│   │   │   └── commands/
+│   │   ├── scripts/
+│   │   └── README.md
+│   │
+│   ├── clipboard/
+│   │   ├── src/
+│   │   │   ├── browser/
+│   │   │   ├── node/
+│   │   │   ├── xclip/
+│   │   │   └── adapters/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── execa/
+│   │   ├── src/
+│   │   │   ├── commands/
+│   │   │   ├── processes/
+│   │   │   └── pipelines/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── lunr/
+│   │   ├── src/
+│   │   │   ├── index/
+│   │   │   ├── documents/
+│   │   │   ├── queries/
+│   │   │   └── tokenizer/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── webdav/
+│   │   ├── src/
+│   │   │   ├── client/
+│   │   │   ├── filesystem/
+│   │   │   ├── sync/
+│   │   │   └── adapters/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── eruda/
+│   │   ├── src/
+│   │   │   ├── console/
+│   │   │   ├── network/
+│   │   │   ├── elements/
+│   │   │   ├── resources/
+│   │   │   └── storage/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── conzole/
+│   │   ├── src/
+│   │   │   ├── console/
+│   │   │   ├── commands/
+│   │   │   ├── formatters/
+│   │   │   └── adapters/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   ├── xwmx-nb/
+│   │   ├── src/
+│   │   │   ├── notebook/
+│   │   │   ├── cells/
+│   │   │   ├── commands/
+│   │   │   └── storage/
+│   │   ├── package.json
+│   │   └── README.md
+│   │
+│   └── wasm/
+│       ├── src/
+│       ├── Cargo.toml
+│       └── package.json
+│
+├── edge/
+│   ├── cloudflare/
+│   │   ├── src/
+│   │   │   ├── index.ts
+│   │   │   ├── router.ts
+│   │   │   ├── middleware.ts
+│   │   │   ├── handlers/
+│   │   │   ├── durable-objects/
+│   │   │   ├── queues/
+│   │   │   ├── scheduled/
+│   │   │   ├── storage/
+│   │   │   └── bindings/
+│   │   ├── test/
+│   │   ├── wrangler.toml
+│   │   ├── package.json
+│   │   └── tsconfig.json
+│   │
+│   └── workers/
+│       ├── api/
+│       ├── cache/
+│       ├── proxy/
+│       ├── webhook/
+│       └── cron/
+│
+├── search/
+│   ├── searxng/
+│   │   ├── config/
+│   │   ├── settings.yml
+│   │   ├── limiter.toml
+│   │   └── README.md
+│   │
+│   ├── lunr/
+│   │   ├── indexes/
+│   │   ├── documents/
+│   │   ├── pipelines/
+│   │   └── README.md
+│   │
+│   ├── crawler/
+│   │   ├── seeds/
+│   │   ├── extractors/
+│   │   ├── normalizers/
+│   │   └── README.md
+│   │
+│   └── api/
+│       ├── routes/
+│       ├── adapters/
+│       └── README.md
+│
+├── remote/
+│   ├── webdav/
+│   │   ├── mounts/
+│   │   ├── sync/
+│   │   ├── clients/
+│   │   └── README.md
+│   │
+│   ├── ssh/
+│   │   ├── hosts/
+│   │   ├── keys/
+│   │   ├── sessions/
+│   │   └── README.md
+│   │
+│   ├── tmux/
+│   │   ├── layouts/
+│   │   ├── sessions/
+│   │   └── scripts/
+│   │
+│   └── xclip/
+│       ├── scripts/
+│       ├── adapters/
+│       └── README.md
+│
+├── database/
+│   ├── migrations/
+│   ├── seeds/
+│   ├── fixtures/
+│   ├── backups/
+│   └── README.md
+│
+├── messaging/
+│   ├── rabbitmq/
+│   │   ├── exchanges/
+│   │   ├── queues/
+│   │   ├── bindings/
+│   │   ├── policies/
+│   │   ├── consumers/
+│   │   ├── producers/
+│   │   └── definitions.json
+│   │
+│   └── redis/
+│       ├── config/
+│       ├── scripts/
+│       ├── streams/
+│       ├── pubsub/
+│       └── schemas/
+│
+├── infra/
+│   ├── nginx/
+│   │   ├── nginx.conf
+│   │   ├── conf.d/
+│   │   ├── snippets/
+│   │   └── sites/
+│   │
+│   ├── docker/
+│   │   ├── base/
+│   │   ├── node/
+│   │   ├── gateway/
+│   │   ├── express/
+│   │   ├── crud/
+│   │   ├── realtime/
+│   │   ├── workers/
+│   │   ├── strapi/
+│   │   ├── lapis/
+│   │   ├── handlebars/
+│   │   ├── search/
+│   │   └── compose/
+│   │
+│   ├── kubernetes/
+│   │   ├── namespaces/
+│   │   ├── config/
+│   │   ├── secrets/
+│   │   ├── deployments/
+│   │   ├── services/
+│   │   ├── ingress/
+│   │   ├── jobs/
+│   │   ├── cronjobs/
+│   │   ├── statefulsets/
+│   │   └── network-policies/
+│   │
+│   ├── argocd/
+│   │   ├── projects/
+│   │   ├── applications/
+│   │   ├── applicationsets/
+│   │   └── repositories/
+│   │
+│   ├── terraform/
+│   │   ├── modules/
+│   │   │   ├── network/
+│   │   │   ├── compute/
+│   │   │   ├── database/
+│   │   │   ├── redis/
+│   │   │   ├── kubernetes/
+│   │   │   ├── cloudflare/
+│   │   │   └── registry/
+│   │   ├── environments/
+│   │   │   ├── dev/
+│   │   │   ├── staging/
+│   │   │   └── production/
+│   │   ├── providers.tf
+│   │   ├── variables.tf
+│   │   ├── outputs.tf
+│   │   └── versions.tf
+│   │
+│   └── ansible/
+│       ├── inventories/
+│       │   ├── dev/
+│       │   ├── staging/
+│       │   └── production/
+│       ├── playbooks/
+│       │   ├── bootstrap.yml
+│       │   ├── docker.yml
+│       │   ├── nginx.yml
+│       │   ├── redis.yml
+│       │   ├── kubernetes.yml
+│       │   ├── tmux.yml
+│       │   └── security.yml
+│       ├── roles/
+│       │   ├── common/
+│       │   ├── docker/
+│       │   ├── nginx/
+│       │   ├── redis/
+│       │   ├── node/
+│       │   ├── tmux/
+│       │   ├── xclip/
+│       │   ├── monitoring/
+│       │   └── security/
+│       ├── group_vars/
+│       └── ansible.cfg
+│
+├── cloudflare/
+│   ├── workers/
+│   ├── pages/
+│   ├── dns/
+│   ├── tunnels/
+│   ├── zones/
+│   ├── rules/
+│   └── README.md
+│
+├── registry/
+│   └── verdaccio/
+│       ├── config/
+│       │   └── config.yaml
+│       └── storage/
+│
+├── ci/
+│   ├── Jenkinsfile
+│   ├── pipelines/
+│   ├── scripts/
+│   ├── agents/
+│   └── shared/
+│
+├── scripts/
+│   ├── bootstrap.sh
+│   ├── doctor.sh
+│   ├── build.sh
+│   ├── test.sh
+│   ├── lint.sh
+│   ├── security.sh
+│   ├── dev.sh
+│   ├── release.sh
+│   ├── clean.sh
+│   ├── generate-tree.sh
+│   └── tree.txt
+│
+├── docs/
+│   ├── mdx/
+│   │   ├── index.mdx
+│   │   ├── architecture/
+│   │   ├── api/
+│   │   ├── frontend/
+│   │   ├── backend/
+│   │   ├── runtimes/
+│   │   ├── database/
+│   │   ├── crud/
+│   │   ├── terminal/
+│   │   ├── notebook/
+│   │   ├── search/
+│   │   ├── cloudflare/
+│   │   ├── infrastructure/
+│   │   ├── security/
+│   │   └── operations/
+│   │
+│   ├── wiki/
+│   │   ├── Home.md
+│   │   ├── Architecture.md
+│   │   ├── API.md
+│   │   ├── CRUD.md
+│   │   ├── Database.md
+│   │   ├── Redis.md
+│   │   ├── WatermelonDB.md
+│   │   ├── Runtimes.md
+│   │   ├── ReScript.md
+│   │   ├── ClojureScript.md
+│   │   ├── ScalaJS.md
+│   │   ├── Kotlin.md
+│   │   ├── Flutter.md
+│   │   ├── Fennel.md
+│   │   ├── Bash.md
+│   │   ├── Node.md
+│   │   ├── Terminal.md
+│   │   ├── Monaco.md
+│   │   ├── Xterm.md
+│   │   ├── Tmux.md
+│   │   ├── Search.md
+│   │   ├── Cloudflare.md
+│   │   ├── WebDAV.md
+│   │   ├── Development.md
+│   │   ├── Deployment.md
+│   │   ├── Operations.md
+│   │   └── Troubleshooting.md
+│   │
+│   ├── api/
+│   │   ├── generated/
+│   │   ├── openapi.json
+│   │   ├── asyncapi.yaml
+│   │   └── jsdoc/
+│   │
+│   └── architecture/
+│       ├── topology.mdx
+│       ├── data-flow.mdx
+│       ├── event-flow.mdx
+│       ├── crud-flow.mdx
+│       ├── sync-flow.mdx
+│       ├── edge-flow.mdx
+│       ├── runtime-flow.mdx
+│       ├── terminal-flow.mdx
+│       ├── search-flow.mdx
+│       ├── deployment-flow.mdx
+│       └── security-boundaries.mdx
+│
+├── templates/
+│   ├── ejs/
+│   │   ├── layout.ejs
+│   │   ├── page.ejs
+│   │   ├── api.ejs
+│   │   ├── sidebar.ejs
+│   │   ├── header.ejs
+│   │   └── footer.ejs
+│   │
+│   └── handlebars/
+│       ├── layouts/
+│       ├── partials/
+│       ├── helpers/
+│       └── views/
+│
+├── tests/
+│   ├── unit/
+│   ├── integration/
+│   ├── contract/
+│   ├── e2e/
+│   ├── load/
+│   ├── security/
+│   ├── database/
+│   ├── redis/
+│   ├── crud/
+│   ├── cloudflare/
+│   ├── runtimes/
+│   ├── terminal/
+│   ├── notebook/
+│   ├── search/
+│   ├── webdav/
+│   └── sync/
+│
+├── config/
+│   ├── environments/
+│   │   ├── development.env
+│   │   ├── staging.env
+│   │   └── production.env
+│   ├── eslint/
+│   ├── prettier/
+│   ├── typescript/
+│   ├── storybook/
+│   ├── tailwind/
+│   ├── shadow-cljs/
+│   └── runtime/
+│
+├── .dockerignore
+├── .editorconfig
+├── .env.example
+├── .gitignore
+├── .npmrc
+├── .prettierignore
+├── Dockerfile
+├── docker-compose.yml
+├── jsdoc.json
+├── openapi.yaml
+├── asyncapi.yaml
+├── package.json
+├── pnpm-workspace.yaml
+├── prisma.config.ts
+├── shadow-cljs.edn
+├── tailwind.config.ts
+├── README.md
+├── CONTRIBUTING.md
+├── SECURITY.md
+├── CHANGELOG.md
+├── LICENSE
+└── sitemap.xml
