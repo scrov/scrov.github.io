@@ -1,0 +1,89 @@
+:root {
+  // Allows transitions between fixed and intrinsic sizes
+  interpolate-size: allow-keywords;
+}
+html {
+  height: 100dvh;
+}
+body {
+  height: 100%;
+}
+* {
+  box-sizing: border-box;
+}
+@view-transition {
+  navigation: auto;
+}
+::view-transition-group(*) {
+  animation-duration: var(--animation-duration);
+}
+html,
+body {
+  font-family: 'Roboto', sans-serif;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--color-text-highlight);
+}
+h1 {
+  margin: 0;
+}
+
+a {
+  transition: color var(--animation-duration) ease;
+  text-decoration: none;
+  text-underline-offset: 4px;
+  &:hover {
+    text-decoration: underline;
+    color: color-mix(in srgb, currentColor, var(--color-primary) 40%);
+  }
+}
+a,
+a:visited {
+  color: var(--color-primary-text);
+}
+a:not(.button):has(> .material-symbols-outlined),
+a:not(.button):has(> .material-symbols-outlined):visited {
+  color: inherit;
+}
+// Enables styling of the select element
+// Baseline newly available later 2025, available in Chrome 134
+select,
+::picker(select) {
+  appearance: base-select;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.material-symbols-outlined {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  font-size: 1em;
+  overflow: hidden;
+}
+
+.text-shadow {
+  text-shadow: var(--text-shadow);
+  font-weight: bold;
+}
+
+.info-box {
+  display: grid;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  margin-top: auto;
+  box-shadow:
+    0 0 5rem calc(100vw / 80) var(--color-background) inset,
+    0 0 0.3rem -0.2rem var(--color-background);
+  border-radius: var(--border-radius);
+}

@@ -1,0 +1,51 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Install') {
+            parallel {
+                stage('PHP') {
+                    steps {
+                        dir('apps/api') {
+                            sh 'composer install --no-interaction --prefer-dist'
+                        }
+                    }
+                }
+
+                stage('Angular') {
+                    steps {
+                        dir('apps/web') {
+                            sh 'npm ci'
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Test') {
+            parallel {
+                stage('PHP Tests') {
+                    steps {
+                        dir('apps/api') {
+                            sh 'php bin/console lint:container'
+                        }
+                    }
+                }
+
+                stage('Angular Build') {
+                    steps {
+                        dir('apps/web') {
+                            sh 'npm run build'
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Docker') {
+            steps {
+                sh 'docker compose build'
+            }
+        }
+    }
+}

@@ -1,0 +1,62 @@
+@keyframes fly-in {
+  from {
+    opacity: 0;
+    scale: 0.7;
+    display: none;
+  }
+}
+@keyframes fly-out {
+  from {
+    display: block;
+  }
+  to {
+    opacity: 0;
+    scale: 0.7;
+    display: none;
+  }
+}
+
+dialog {
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  background-color: var(--color-background);
+  color: var(--color-text);
+  padding: 1rem;
+  box-shadow: var(--shadow2);
+  position: fixed;
+  inset: 0;
+
+  &[open] {
+    animation: fly-in var(--animation-duration) ease-in-out;
+  }
+  &:not([open]) {
+    animation: fly-out var(--animation-duration) ease-in-out;
+  }
+
+  &::backdrop {
+    background-image: radial-gradient(
+      circle at center center,
+      transparent 0%,
+      var(--vignette-color, var(--color-background)) 100%
+    );
+    backdrop-filter: blur(2px);
+    transition: opacity var(--animation-duration) ease-in-out;
+    opacity: 1;
+
+    @starting-style {
+      opacity: 0;
+    }
+  }
+
+  header {
+    margin-bottom: 0.5rem;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0;
+    }
+  }
+}

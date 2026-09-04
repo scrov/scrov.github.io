@@ -1,0 +1,126 @@
+/**
+ * Buttons and variants
+ */
+button,
+.button,
+a.button {
+  --outline-color: var(--color-border-focused);
+  display: block;
+  color: var(--color-text-button);
+  background-color: var(--color-background-button);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1rem;
+  outline-color: var(--outline-color);
+  font-family: inherit;
+  font-size: 0.9em;
+  cursor: pointer;
+  text-align: center;
+  transition:
+    scale 0.1s ease-in-out,
+    outline 0.1s ease-in-out,
+    border 0.1s ease-in-out;
+
+  // States
+  &:hover:not(.flat):not([disabled]),
+  &:focus:not(.flat):not([disabled]) {
+    background-color: color-mix(
+      in srgb,
+      var(--color-background-button),
+      var(--color-primary) 20%
+    );
+  }
+  &:hover:not(.flat):not([disabled]),
+  &:focus:not(.flat):not([disabled]),
+  &.active:not([disabled]),
+  &:active:not([disabled]) {
+    outline-offset: -1px;
+    outline-width: 2px;
+    outline-style: solid;
+  }
+  &.active:not([disabled]),
+  &:active:not([disabled]) {
+    scale: 0.9;
+  }
+
+  // Variants
+  &.flat {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--color-text-highlight);
+  }
+  &.primary {
+    color: color-mix(
+      in srgb,
+      var(--color-text-button),
+      var(--color-primary) 10%
+    );
+    --outline-color: color-mix(
+      in srgb,
+      var(--color-border-focused),
+      var(--color-primary) 30%
+    );
+    background-color: color-mix(
+      in srgb,
+      var(--color-background-button),
+      var(--color-primary) 50%
+    );
+  }
+  &.warn {
+    color: color-mix(in srgb, var(--color-text-button), var(--color-warn) 10%);
+    --outline-color: color-mix(
+      in srgb,
+      var(--color-border-focused),
+      var(--color-warn) 30%
+    );
+    background-color: color-mix(
+      in srgb,
+      var(--color-background-button),
+      var(--color-warn) 50%
+    );
+  }
+  &[disabled] {
+    background-color: transparent;
+    border-color: transparent;
+    color: var(--color-text-disabled);
+  }
+}
+
+/**
+ * File upload buttons
+ */
+label.button + input[type='file'] {
+  padding: 0;
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  line-height: 0;
+  position: absolute;
+}
+
+.icon-button {
+  display: flex;
+  height: 100%;
+  place-items: center;
+  button {
+    color: var(--color-text);
+    &:active {
+      outline: 0;
+    }
+    span {
+      display: flex;
+      font-size: 1.1em;
+      line-height: 1em;
+      font-weight: bold;
+      transition:
+        scale var(--animation-duration) ease-in-out,
+        opacity var(--animation-duration) ease-in-out;
+      transform-origin: center;
+      opacity: 0.7;
+    }
+    &:hover span {
+      scale: 1.2;
+      opacity: 1;
+    }
+  }
+}

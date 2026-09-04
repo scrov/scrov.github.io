@@ -1,0 +1,25 @@
+<lib-widget [host]="host()">
+  <form>
+    <div class="group upload-button">
+      <label for="upload" class="button">Upload audio</label>
+      <input id="upload" type="file" (change)="filePicked($event)" accept="audio/*" />
+    </div>
+    <div class="group record-button">
+      <button type="button" (click)="toggleRecord()">
+        {{ !isRecording() ? 'Record audio' : 'Stop recording' }}
+      </button>
+      <canvas #visualizer class="visualizer"></canvas>
+    </div>
+  </form>
+
+  <div class="info-box">
+    @if (isProcessing()) {
+      <p>Processing...</p>
+    } @else if (transcription()) {
+      <h2>Result</h2>
+      <p>{{ transcription() }}</p>
+    } @else if (info()) {
+      <p>{{ info() }}</p>
+    }
+  </div>
+</lib-widget>

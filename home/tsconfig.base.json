@@ -1,0 +1,37 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "bundler",
+    "isolatedModules": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "ES2022",
+    "module": "preserve",
+    "lib": ["es2022", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "typeRoots": ["./node_modules/@types"],
+    "types": ["node", "express", "multer"],
+    "paths": {
+      "@home/builder": ["tools/builder/src/index.ts"],
+      "@home/dash-api*": ["apps/dash-api/src/*"],
+      "@home/shared": ["libs/shared/src/index.ts"],
+      "@home/shared/*": ["libs/shared/src/lib/*"],
+      "@home/widgets/*": ["libs/widgets/*"],
+      "@home/widgets/chat": ["libs/widgets/chat/src/index.ts"],
+      "@home/widgets/fund": ["libs/widgets/fund/src/index.ts"],
+      "@home/widgets/pyramid": ["libs/widgets/pyramid/src/index.ts"],
+      "@home/widgets/starfield": ["libs/widgets/starfield/src/index.ts"],
+      "@home/widgets/transcribe": ["libs/widgets/transcribe/src/index.ts"],
+      "@home/widgets/weather": ["libs/widgets/weather/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

@@ -1,0 +1,75 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0 1rem;
+}
+nav {
+  display: flex;
+  place-content: space-between;
+  place-items: center;
+  gap: 0.25rem;
+  position: relative;
+  @media screen and (max-width: 420px) {
+    position: absolute;
+    top: 1rem;
+    width: 3rem;
+    flex-direction: column-reverse;
+    right: 1rem;
+  }
+  .filter {
+    display: none;
+    @media screen and (max-width: 420px) {
+      display: block;
+    }
+  }
+  .settings {
+    @media screen and (min-width: 420px) and (max-width: 470px) {
+      position: absolute;
+      right: 0;
+      top: -7.5rem;
+    }
+  }
+  > menu {
+    @media screen and (max-width: 570px) {
+      button {
+        flex: 1;
+      }
+    }
+    @media screen and (max-width: 420px) {
+      display: none;
+    }
+  }
+}
+menu {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+lib-popover menu {
+  flex-direction: column;
+  width: 100%;
+  padding: 0.5rem;
+  button {
+    width: 100%;
+  }
+}
+
+.widget-area {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: normal;
+  height: auto;
+  flex: 1;
+  view-transition-name: widget-container;
+  view-transition-group: contain;
+}
+::view-transition-group(.widget-area) {
+  overflow: clip;
+}
+footer div {
+  text-align: right;
+}

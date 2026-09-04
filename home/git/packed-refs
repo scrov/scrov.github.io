@@ -1,0 +1,8 @@
+# pack-refs with: peeled fully-peeled sorted 
+734828375b5015394d1c6d99bc0105a745739f30 refs/remotes/origin/29-widget-investigate-running-whisper-in-browser
+a7e51636c2b15f52587e8dc097d260924944f94a refs/remotes/origin/dependabot/npm_and_yarn/angular/common-21.2.17
+fce74a2a3fd9ebec7201deb9c0f8922d416cc854 refs/remotes/origin/dependabot/npm_and_yarn/angular/compiler-21.2.17
+1c678e49380aa232cf9b5e983cd85b693b28a9db refs/remotes/origin/dependabot/npm_and_yarn/angular/core-21.2.17
+214e33e63d3bbc7a5886d927c4cf07acd4e5765c refs/remotes/origin/dependabot/npm_and_yarn/angular/platform-server-21.2.16
+ec72ff610031469d031c872fbda34843aaf403cf refs/remotes/origin/dependabot/npm_and_yarn/angular/ssr-21.2.9
+528bedd6abbe3de91d673db5fe18930d43a18733 refs/remotes/origin/master

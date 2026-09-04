@@ -1,0 +1,49 @@
+{
+  "name": "dash-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/dash-api/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "echo 'Building Dashboard API...'"
+      },
+      "configurations": {
+        "development": {
+          "command": "cross-env NODE_ENV=development node apps/dash-api/esbuild.config.js",
+          "sourceMap": true,
+          "watch": true
+        },
+        "production": {
+          "command": "cross-env NODE_ENV=production node apps/dash-api/esbuild.config.js",
+          "bundle": true,
+          "minify": true
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "dash-api:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "dash-api:build:development"
+        },
+        "production": {
+          "buildTarget": "dash-api:build:production"
+        }
+      }
+    },
+    "test": {
+      "options": {
+        "passWithNoTests": true
+      }
+    }
+  }
+}

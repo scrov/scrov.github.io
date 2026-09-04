@@ -1,0 +1,16 @@
+api:
+  image: enterprise-pwa-api
+  replicas: 2
+
+web:
+  image: enterprise-pwa-web
+  replicas: 2
+
+postgres:
+  image: postgres:17
+
+redis:
+  image: redis:8-alpine
+
+rabbitmq:
+  image: rabbitmq:4-management

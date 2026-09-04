@@ -1,0 +1,121 @@
+:host {
+  min-width: 280px;
+  &:not(.fullscreen) ::ng-deep .widget-content {
+    padding: 0;
+    main {
+      padding: 1rem;
+      margin-bottom: 0;
+    }
+    footer {
+      padding: 1rem;
+      margin: 0 0 0.8rem 0;
+    }
+  }
+  ::ng-deep .widget-content {
+    display: grid;
+    grid-template:
+      'main' 1fr
+      'footer' auto / 1fr;
+    height: 100%;
+    width: 100%;
+    max-height: 100vh;
+  }
+}
+main {
+  grid-area: main;
+  overflow: auto;
+  margin-bottom: 0.5rem;
+  .message-container {
+    view-transition-class: chat-message-container;
+    // margin: 1rem;
+    max-width: 60vw;
+    min-width: 10rem;
+    width: fit-content;
+    &.user {
+      margin-left: auto;
+      .message {
+        text-align: right;
+        background-color: hsl(from var(--color-primary) h s l / 50%);
+      }
+      .timestamp {
+        text-align: right;
+      }
+    }
+    &.assistant {
+      .message {
+        background-color: hsl(from var(--color-primary) h 10% l / 70%);
+        &.aborted {
+          color: var(--color-text-disabled);
+          background-color: hsl(from var(--color-primary) h 10% l / 30%);
+        }
+        &.streaming {
+        }
+      }
+      .timestamp {
+        text-align: left;
+      }
+    }
+    .timestamp {
+      font-size: 0.8rem;
+      color: var(--color-text-disabled);
+      margin-top: 0.2rem;
+      display: flex;
+      place-items: center;
+      gap: 0.5rem;
+    }
+  }
+  .message {
+    padding: 0.5rem;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+  }
+  lib-spinner {
+    font-size: 1rem;
+  }
+}
+footer {
+  view-transition-name: chat-message-footer;
+  grid-area: footer;
+  padding: 1rem;
+  border-top: 1px solid var(--color-border);
+  margin: 0 -1rem 0 -1rem;
+  label {
+    view-transition-name: chat-message-box;
+    cursor: text;
+    display: flex;
+    position: relative;
+    flex: 1 1;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    textarea {
+      view-transition-name: chat-message-input;
+      height: 100%;
+      width: 100%;
+      border-radius: 10px;
+      border: none;
+      font-family: inherit;
+      padding: 10px 90px 10px 14px;
+      resize: none;
+      outline: none;
+      box-sizing: border-box;
+      min-height: 5rem;
+    }
+    button {
+      view-transition-name: chat-send-button;
+      color: var(--color-text-button);
+      position: absolute;
+      right: 0.5rem;
+      bottom: 0.5rem;
+      background-color: var(--color-background-button);
+      display: flex;
+      place-items: center;
+      gap: 0.5rem;
+    }
+  }
+  small {
+    view-transition-name: chat-message-status;
+    display: block;
+    height: 1em;
+    margin-bottom: -2em;
+  }
+}
