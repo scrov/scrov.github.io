@@ -1,0 +1,104 @@
+openapi: 3.1.0
+info:
+  title: scrov Portfolio API
+  version: 1.0.0
+  description: Contract for the scrov software engineering portfolio and wiki.
+servers:
+  - url: http://localhost:3000/api/v1
+    description: Local development
+paths:
+  /health:
+    get:
+      operationId: health
+      responses:
+        '200':
+          description: Service health
+  /profile:
+    get:
+      operationId: getProfile
+      responses:
+        '200':
+          description: Profile payload
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProfileEnvelope'
+  /projects:
+    get:
+      operationId: listProjects
+      responses:
+        '200':
+          description: Project collection
+  /wiki:
+    get:
+      operationId: listWiki
+      responses:
+        '200':
+          description: Wiki index
+  /wiki/{slug}:
+    get:
+      operationId: getWikiEntry
+      parameters:
+        - in: path
+          name: slug
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Wiki entry
+        '404':
+          description: Wiki entry not found
+  /contact:
+    post:
+      operationId: createContact
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactRequest'
+      responses:
+        '202':
+          description: Contact accepted
+components:
+  schemas:
+    ProfileEnvelope:
+      type: object
+      required: [data]
+      properties:
+        data:
+          $ref: '#/components/schemas/Profile'
+    Profile:
+      type: object
+      required: [id, type, attributes]
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          const: profile
+        attributes:
+          type: object
+          required: [name, role, site]
+          properties:
+            name:
+              type: string
+            role:
+              type: string
+            site:
+              type: string
+              format: uri
+    ContactRequest:
+      type: object
+      required: [name, email, message]
+      properties:
+        name:
+          type: string
+          minLength: 1
+        email:
+          type: string
+          format: email
+        message:
+          type: string
+          minLength: 1

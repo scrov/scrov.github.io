@@ -1,0 +1,56 @@
+---
+title: Architecture
+---
+
+# Architecture
+
+## Boundary graph
+
+```text
+┌─────────────────────────────┐
+│          Content            │
+│ README.mdx + wiki/*.mdx     │
+└──────────────┬──────────────┘
+               ▼
+┌─────────────────────────────┐
+│           unified           │
+│ parse / transform / validate│
+└──────────────┬──────────────┘
+               ▼
+┌─────────────────────────────┐
+│            Astro            │
+│ document host + SSR/SSG     │
+└──────────────┬──────────────┘
+               ▼
+┌─────────────────────────────┐
+│        Angular client       │
+│ interactive UI + PWA        │
+└──────────────┬──────────────┘
+               ▼
+┌─────────────────────────────┐
+│          NestJS API         │
+│ controllers / modules / DI  │
+└─────────────────────────────┘
+```
+
+## SOLID rules
+
+### Single responsibility
+
+Astro renders documents. Angular owns interactive UI. NestJS owns application APIs. EJS renders server views where needed.
+
+### Open/closed
+
+Add new wiki nodes, components, and API resources without rewriting the entire site shell.
+
+### Liskov
+
+Adapters implement ports with substitutable behavior and stable contracts.
+
+### Interface segregation
+
+Expose narrow service interfaces and small component inputs instead of global mega-services.
+
+### Dependency inversion
+
+Domain and application code depend on contracts; framework adapters sit at the edge.

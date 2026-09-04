@@ -1,0 +1,16 @@
+---
+title: EJS Templates
+---
+
+# EJS Templates
+
+Use EJS for server-side view composition when a server-rendered template is the right adapter.
+
+```ejs
+<section class="terminal-card">
+  <h1><%= profile.title %></h1>
+  <p><%= profile.summary %></p>
+</section>
+```
+
+Keep business decisions outside the template. Views receive already-shaped data and render it.

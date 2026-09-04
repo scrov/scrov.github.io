@@ -1,0 +1,36 @@
+---
+title: Storybook
+---
+
+# Storybook
+
+Storybook MDX is the executable documentation layer for components. MDX docs can coexist with stories and can also render imported Markdown content.
+
+## Angular framework
+
+```ts
+import type { StorybookConfig } from '@storybook/angular';
+
+const config: StorybookConfig = {
+  framework: {
+    name: '@storybook/angular',
+    options: {}
+  }
+};
+
+export default config;
+```
+
+Storybook's Angular integration supports project configuration such as global styles, assets, source maps, and related builder options.
+
+## Documentation pattern
+
+```mdx
+import { Meta } from '@storybook/blocks';
+
+<Meta title="UI/PortfolioCard" />
+
+# PortfolioCard
+
+The UI contract lives beside the component story.
+```

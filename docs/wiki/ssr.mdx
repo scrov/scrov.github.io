@@ -1,0 +1,34 @@
+---
+title: SSR + PWA
+---
+
+# SSR + PWA
+
+## Runtime
+
+```text
+Request
+  │
+  ▼
+Astro route
+  │
+  ▼
+SSR HTML
+  │
+  ▼
+Angular hydration
+  │
+  ├── API calls
+  ├── browser state
+  └── service worker
+```
+
+Astro supports Markdown natively and can add MDX through `@astrojs/mdx`, while local Markdown/MDX can be organized into typed build-time content collections.
+
+## Rendering rule
+
+Keep the initial SSR payload deterministic. Push browser-only capabilities behind explicit hydration boundaries.
+
+## PWA rule
+
+Cache immutable assets aggressively, keep API caching explicit, and avoid turning the service worker into a second application runtime.

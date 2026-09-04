@@ -1,0 +1,338 @@
+---
+title: scrov · Software Engineer
+description: Fullstack software engineering CV, architecture notes, API contract, and documentation index.
+---
+
+# <span className="terminal-prompt">scrov@github:~$</span> `whoami`
+
+## Software Engineer · Fullstack Web · SSR/PWA · Realtime Systems
+
+> Engineering portfolio presented as a living technical specification.
+
+I design web systems around **clear contracts, composable boundaries, observable runtimes, and documentation that stays close to the code**.
+
+The portfolio is intentionally built as a documentation system: Markdown and MDX form the authoring layer, **unified** supplies syntax-tree processing, **Astro** renders static or server-rendered content, **Angular** owns application UX, **NestJS** exposes typed backend capabilities, **EJS** handles server-side view composition where appropriate, and **Storybook** turns components into executable documentation.
+
+## `KAIROS` architecture
+
+```text
+                         ┌─────────────────────────────┐
+                         │         README.mdx           │
+                         │       CV + system map        │
+                         └──────────────┬──────────────┘
+                                        │
+                         ┌──────────────▼──────────────┐
+                         │        MDX / Markdown        │
+                         │  prose + JSX + doc contracts │
+                         └──────────────┬──────────────┘
+                                        │
+                      ┌─────────────────▼─────────────────┐
+                      │             unified               │
+                      │ parse → transform → serialize     │
+                      └───────────────┬───────────────────┘
+                                      │
+              ┌───────────────────────┼────────────────────────┐
+              │                       │                        │
+     ┌────────▼────────┐    ┌────────▼─────────┐    ┌────────▼────────┐
+     │      Astro      │    │ Storybook / MDX  │    │      EJS         │
+     │ site + SSR/SSG  │    │ component docs   │    │ view composition │
+     └────────┬────────┘    └────────┬─────────┘    └────────┬────────┘
+              │                      │                       │
+              └──────────────┬───────┴───────────────┬───────┘
+                             │                       │
+                    ┌────────▼────────┐     ┌──────▼─────────┐
+                    │ Angular SSR/PWA │     │    NestJS API   │
+                    │ UX + state      │────▶│ modules/services│
+                    └─────────────────┘     └────────────────┘
+```
+
+### Event → Input → Trigger → Next task
+
+| Event | Input | Trigger | Next task |
+|---|---|---|---|
+| Visitor opens portfolio | URL + route | Astro page request | Render CV shell |
+| Visitor opens wiki node | slug | route resolver | Load MDX entry |
+| UI contract changes | Angular component | Storybook story | Update docs + visual regression |
+| API contract changes | OpenAPI schema | CI validation | Regenerate consumers |
+| Content changes | MDX | unified pipeline | Parse → transform → render |
+
+## Engineering profile
+
+### Focus
+
+- **Frontend:** Angular, SSR, PWA, component architecture, Storybook, TypeScript
+- **Backend:** NestJS, modular services, validation, API contracts, integration boundaries
+- **Content engineering:** MDX, Markdown, unified, AST transforms, documentation pipelines
+- **Rendering:** Astro, SSR/SSG, EJS, progressive enhancement
+- **Architecture:** SOLID boundaries, DDD-aligned modules, dependency inversion, contract-first APIs
+- **Delivery:** reproducible builds, CI checks, versioned documentation, observable runtime boundaries
+
+### Working model
+
+```text
+Domain
+  ↓
+Application use-cases
+  ↓
+Ports / contracts
+  ↓
+Adapters
+  ↓
+Infrastructure
+```
+
+The same separation is applied to documentation:
+
+```text
+Source MDX
+  ↓
+AST
+  ↓
+remark / rehype / custom transforms
+  ↓
+MDX runtime
+  ↓
+Astro or Storybook renderer
+  ↓
+Published wiki / portfolio / component docs
+```
+
+## Selected systems
+
+| System | Role | Evidence surface |
+|---|---|---|
+| Portfolio | CV + engineering narrative | `README.mdx` |
+| Documentation wiki | Architecture and API knowledge base | `docs/wiki/*.mdx` |
+| API contract | Stable machine-readable interface | `openapi.yaml` |
+| Component lab | UI behavior and executable documentation | Storybook MDX |
+| SSR shell | Fast first render and crawlable pages | Astro + Angular |
+| Template layer | Server-oriented presentation boundaries | EJS |
+
+## API contract
+
+The API is documented as a contract rather than an implementation diary.
+
+### HTTP surface
+
+```http
+GET    /api/v1/health
+GET    /api/v1/profile
+GET    /api/v1/projects
+GET    /api/v1/wiki
+GET    /api/v1/wiki/{slug}
+POST   /api/v1/contact
+```
+
+### Example response envelope
+
+```json
+{
+  "data": {
+    "id": "project-001",
+    "type": "portfolio-project",
+    "attributes": {
+      "title": "Realtime Web Platform",
+      "status": "active"
+    }
+  },
+  "meta": {
+    "version": "1"
+  }
+}
+```
+
+### NestJS module boundary
+
+```ts
+import { Module } from '@nestjs/common';
+
+@Module({
+  imports: [],
+  controllers: [],
+  providers: [],
+  exports: []
+})
+export class PortfolioModule {}
+```
+
+NestJS modules encapsulate providers and expose selected providers as a public interface, making the module boundary a natural place to enforce dependency direction.
+
+## Angular SSR + PWA
+
+Angular is the application layer for interactive product experiences. The SSR shell should remain thin: route resolution, initial state, accessible markup, and hydration boundaries belong near the rendering edge; domain behavior belongs behind services and application ports.
+
+```text
+Browser request
+      │
+      ▼
+Astro shell / SSR route
+      │
+      ▼
+Angular application
+      │
+      ├── signals / state
+      ├── route data
+      ├── API client
+      └── service worker
+      │
+      ▼
+NestJS API
+```
+
+The Angular + NestJS pairing is well suited to a monorepo when shared contracts and utility libraries need to stay synchronized across frontend and backend boundaries.
+
+## Astro as the document host
+
+Astro supports Markdown directly and can add MDX through `@astrojs/mdx`, enabling Markdown content to contain JSX expressions and components. Its content collections can also load local Markdown or MDX entries through build-time loaders.
+
+That makes the wiki model straightforward:
+
+```text
+src/content/wiki/
+├── index.mdx
+├── architecture.mdx
+├── api.mdx
+├── ssr.mdx
+├── storybook.mdx
+└── templates.mdx
+```
+
+## unified document pipeline
+
+`unified` is the content-processing boundary. The portfolio treats prose like source code: parse it, transform it, validate it, then serialize it for the target runtime. Its transformer model is centered on syntax trees and supports asynchronous transformations through promises.
+
+```text
+MDX / Markdown
+      │
+      ▼
+mdast / hast
+      │
+      ├── lint
+      ├── normalize
+      ├── enrich metadata
+      ├── generate anchors
+      └── validate links
+      │
+      ▼
+Rendered documentation
+```
+
+## MDX composition
+
+MDX is used where documentation needs behavior or imported UI. It supports embedded components and injected component mappings, so the same authored document can become an interactive documentation page instead of a static wall of prose.
+
+```mdx
+# Component contract
+
+<details>
+  <summary>Open runtime notes</summary>
+
+  The interface is documented beside the implementation.
+</details>
+```
+
+For the Astro site, keep the MDX source portable and push site-specific layout into wrappers and components. This avoids coupling the CV text to one renderer.
+
+## Storybook as executable documentation
+
+Storybook MDX supports documentation alongside component stories, and its docs tooling can render imported Markdown as part of a documentation page. Angular projects can configure Storybook with the Angular framework adapter and options for styles, assets, source maps, and related integration concerns.
+
+```mdx
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Portfolio/Architecture" />
+
+# Architecture
+
+The component contract is documented beside the rendered story.
+```
+
+## EJS boundary
+
+EJS belongs at the server/template boundary. It should render data already prepared by application services rather than accumulating business logic inside views.
+
+```ejs
+<main class="terminal-panel">
+  <h1><%= profile.title %></h1>
+  <p><%= profile.summary %></p>
+</main>
+```
+
+That separation keeps EJS useful for server-oriented presentation while MDX remains the documentation/content format.
+
+## Wiki map
+
+| Node | Purpose |
+|---|---|
+| [Architecture](docs/wiki/architecture.mdx) | Boundaries, module graph, runtime flow |
+| [API](docs/wiki/api.mdx) | Endpoint contracts and OpenAPI model |
+| [SSR + PWA](docs/wiki/ssr.mdx) | Astro, Angular, hydration, service-worker boundaries |
+| [Storybook](docs/wiki/storybook.mdx) | Component docs, CSF/MDX relationship |
+| [Templates](docs/wiki/templates.mdx) | EJS and server-side rendering boundaries |
+| [Theme](docs/wiki/theme.mdx) | Black-green presentation contract |
+
+## Repository topology
+
+```text
+.
+├── README.md
+├── README.mdx
+├── openapi.yaml
+├── docs/
+│   └── wiki/
+│       ├── index.mdx
+│       ├── architecture.mdx
+│       ├── api.mdx
+│       ├── ssr.mdx
+│       ├── storybook.mdx
+│       └── templates.mdx
+└── src/
+    └── ...
+```
+
+## Delivery blueprint
+
+### Phase 1 · Contract
+
+`README.mdx` defines the public narrative and links to stable wiki nodes. `openapi.yaml` defines machine-readable HTTP contracts.
+
+### Phase 2 · Documentation runtime
+
+Astro owns the published documentation route. MDX files become the canonical authored pages, with content collections providing typed metadata and predictable loading.
+
+### Phase 3 · UI system
+
+Angular owns interactive application surfaces. Storybook owns the component laboratory and executable documentation.
+
+### Phase 4 · Backend
+
+NestJS exposes domain modules and application services through explicit controllers and providers.
+
+### Phase 5 · Integration
+
+A CI pipeline validates Markdown/MDX, OpenAPI, TypeScript, Storybook builds, and the Astro site before publication.
+
+## Documentation references
+
+- [unified](https://github.com/unifiedjs/unified)
+- [EJS](https://github.com/mde/ejs)
+- [MDX embedding](https://mdxjs.com/guides/embed/)
+- [MDX component injection](https://mdxjs.com/guides/injecting-components/)
+- [Storybook MDX](https://storybook.js.org/docs/writing-docs/mdx)
+- [Storybook Angular](https://storybook.js.org/docs/get-started/frameworks/angular)
+- [Storybook Astro](https://github.com/storybook-astro/storybook-astro)
+- [Astro Markdown content](https://docs.astro.build/en/guides/markdown-content/)
+- [Analog Astro + Angular](https://analogjs.org/docs/packages/astro-angular/overview)
+- [Angular + NestJS + Nx](https://angular.love/full-stack-apps-with-angular-and-nestjs-in-an-nx-monorepo)
+
+## Contact surface
+
+```text
+name      = scrov
+role      = Software Engineer
+site      = https://scrov.github.io
+source    = https://github.com/scrov/scrov.github.io
+status    = building
+```
+
+> The repository is the portfolio; the wiki is the engineering notebook; the API contract is the boundary; the component library is the proof.
