@@ -1,0 +1,294 @@
+---
+title: scrov · Software Engineer
+description: Fullstack software engineer building SSR PWAs, realtime systems, APIs, and documentation platforms.
+---
+
+<div className="min-h-screen bg-zinc-950 font-mono text-zinc-300">
+
+  <main className="mx-auto max-w-5xl px-6 py-10">
+
+    <header className="border border-emerald-500/30 bg-black p-8 shadow-[0_0_50px_rgba(16,185,129,0.08)]">
+
+      <p className="text-sm text-emerald-400">
+        $ whoami
+      </p>
+
+      <h1 className="mt-3 text-4xl font-bold tracking-tight text-emerald-300 md:text-5xl">
+        scrov
+      </h1>
+
+      <p className="mt-3 text-xl text-zinc-200">
+        Software Engineer
+      </p>
+
+      <p className="mt-2 text-sm text-zinc-500">
+        Fullstack Web · SSR/PWA · Realtime Systems · API Architecture
+      </p>
+
+      <p className="mt-6 max-w-3xl text-sm leading-7 text-zinc-400">
+        I design maintainable web systems around explicit contracts,
+        composable boundaries, realtime communication, and documentation
+        that stays close to the code.
+      </p>
+
+      <nav className="mt-6 flex flex-wrap gap-3 text-xs">
+        <a
+          href="https://scrov.github.io"
+          className="border border-emerald-500/40 px-3 py-2 text-emerald-400 transition hover:border-emerald-400 hover:bg-emerald-500/10"
+        >
+          portfolio
+        </a>
+
+        <a
+          href="https://github.com/scrov/scrov.github.io"
+          className="border border-zinc-700 px-3 py-2 text-zinc-400 transition hover:border-emerald-500/40 hover:text-emerald-400"
+        >
+          github
+        </a>
+
+        <a
+          href="/docs/wiki/"
+          className="border border-zinc-700 px-3 py-2 text-zinc-400 transition hover:border-emerald-500/40 hover:text-emerald-400"
+        >
+          wiki
+        </a>
+
+        <a
+          href="/openapi.yaml"
+          className="border border-zinc-700 px-3 py-2 text-zinc-400 transition hover:border-emerald-500/40 hover:text-emerald-400"
+        >
+          api
+        </a>
+      </nav>
+
+    </header>
+
+    <section className="mt-6 grid gap-4 md:grid-cols-3">
+
+      <article className="border border-emerald-500/20 bg-zinc-900/50 p-5">
+        <p className="text-xs uppercase tracking-widest text-emerald-400">
+          Frontend
+        </p>
+        <p className="mt-4 text-sm leading-6 text-zinc-300">
+          Angular · TypeScript · SSR · PWA · Storybook · Astro
+        </p>
+      </article>
+
+      <article className="border border-emerald-500/20 bg-zinc-900/50 p-5">
+        <p className="text-xs uppercase tracking-widest text-emerald-400">
+          Backend
+        </p>
+        <p className="mt-4 text-sm leading-6 text-zinc-300">
+          NestJS · REST · OpenAPI · modular services · validation
+        </p>
+      </article>
+
+      <article className="border border-emerald-500/20 bg-zinc-900/50 p-5">
+        <p className="text-xs uppercase tracking-widest text-emerald-400">
+          Platform
+        </p>
+        <p className="mt-4 text-sm leading-6 text-zinc-300">
+          MDX · unified · EJS · CI/CD · containers · observability
+        </p>
+      </article>
+
+    </section>
+
+    <section className="mt-10">
+
+      <h2 className="border-b border-zinc-800 pb-3 text-xl font-bold text-emerald-300">
+        / engineering profile
+      </h2>
+
+      <div className="mt-5 overflow-hidden border border-zinc-800">
+
+        <table className="w-full text-left text-sm">
+          <thead className="border-b border-zinc-800 bg-zinc-900">
+            <tr>
+              <th className="px-4 py-3 text-emerald-400">Area</th>
+              <th className="px-4 py-3 text-emerald-400">Practice</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr className="border-b border-zinc-800">
+              <td className="px-4 py-3 text-zinc-400">Architecture</td>
+              <td className="px-4 py-3">SOLID · DDD · dependency inversion</td>
+            </tr>
+
+            <tr className="border-b border-zinc-800">
+              <td className="px-4 py-3 text-zinc-400">APIs</td>
+              <td className="px-4 py-3">Contract-first · OpenAPI · versioning</td>
+            </tr>
+
+            <tr className="border-b border-zinc-800">
+              <td className="px-4 py-3 text-zinc-400">UI</td>
+              <td className="px-4 py-3">Angular · SSR · hydration · PWA</td>
+            </tr>
+
+            <tr className="border-b border-zinc-800">
+              <td className="px-4 py-3 text-zinc-400">Documentation</td>
+              <td className="px-4 py-3">MDX · unified AST · Storybook</td>
+            </tr>
+
+            <tr>
+              <td className="px-4 py-3 text-zinc-400">Delivery</td>
+              <td className="px-4 py-3">CI · reproducible builds · observability</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+    </section>
+
+    <section className="mt-10">
+
+      <h2 className="border-b border-zinc-800 pb-3 text-xl font-bold text-emerald-300">
+        / architecture
+      </h2>
+
+      <pre className="mt-5 overflow-x-auto border border-zinc-800 bg-black p-5 text-xs leading-6 text-emerald-400">
+{`README.mdx
+    │
+    ▼
+MDX / Markdown
+    │
+    ▼
+unified AST
+    │
+    ├── transform
+    ├── validate
+    └── enrich
+    │
+    ▼
+Astro
+    │
+    ├── SSR / SSG
+    ├── Angular
+    └── Storybook
+    │
+    ▼
+NestJS API
+    │
+    ├── domain
+    ├── application
+    ├── ports
+    └── adapters`}
+      </pre>
+
+    </section>
+
+    <section className="mt-10">
+
+      <h2 className="border-b border-zinc-800 pb-3 text-xl font-bold text-emerald-300">
+        / api
+      </h2>
+
+      <div className="mt-5 border border-zinc-800 bg-black p-5 text-sm">
+
+        <p className="text-emerald-400">HTTP surface</p>
+
+        <div className="mt-4 space-y-2 text-zinc-400">
+          <p><span className="text-emerald-300">GET</span> /api/v1/health</p>
+          <p><span className="text-emerald-300">GET</span> /api/v1/profile</p>
+          <p><span className="text-emerald-300">GET</span> /api/v1/projects</p>
+          <p><span className="text-emerald-300">GET</span> /api/v1/wiki</p>
+          <p><span className="text-emerald-300">GET</span> /api/v1/wiki/{'{slug}'}</p>
+          <p><span className="text-emerald-300">POST</span> /api/v1/contact</p>
+        </div>
+
+        <a
+          href="/openapi.yaml"
+          className="mt-5 inline-block text-xs text-emerald-400 underline decoration-emerald-500/30 underline-offset-4 hover:text-emerald-300"
+        >
+          view OpenAPI contract
+        </a>
+
+      </div>
+
+    </section>
+
+    <section className="mt-10">
+
+      <h2 className="border-b border-zinc-800 pb-3 text-xl font-bold text-emerald-300">
+        / documentation system
+      </h2>
+
+      <p className="mt-5 max-w-3xl text-sm leading-7 text-zinc-400">
+        MDX provides the authored document layer. unified provides AST
+        processing. Astro publishes the site. Storybook provides executable
+        component documentation. EJS remains a focused server-template
+        boundary.
+      </p>
+
+      <div className="mt-5 grid gap-3 md:grid-cols-2">
+
+        <a
+          href="/docs/wiki/architecture/"
+          className="border border-zinc-800 p-4 transition hover:border-emerald-500/40"
+        >
+          <span className="text-emerald-400">Architecture</span>
+          <p className="mt-2 text-xs text-zinc-500">
+            Boundaries, modules, runtime flow.
+          </p>
+        </a>
+
+        <a
+          href="/docs/wiki/api/"
+          className="border border-zinc-800 p-4 transition hover:border-emerald-500/40"
+        >
+          <span className="text-emerald-400">API</span>
+          <p className="mt-2 text-xs text-zinc-500">
+            Contracts and integration model.
+          </p>
+        </a>
+
+        <a
+          href="/docs/wiki/ssr/"
+          className="border border-zinc-800 p-4 transition hover:border-emerald-500/40"
+        >
+          <span className="text-emerald-400">SSR + PWA</span>
+          <p className="mt-2 text-xs text-zinc-500">
+            Astro, Angular SSR, hydration.
+          </p>
+        </a>
+
+        <a
+          href="/docs/wiki/storybook/"
+          className="border border-zinc-800 p-4 transition hover:border-emerald-500/40"
+        >
+          <span className="text-emerald-400">Storybook</span>
+          <p className="mt-2 text-xs text-zinc-500">
+            Executable component documentation.
+          </p>
+        </a>
+
+      </div>
+
+    </section>
+
+    <section className="mt-10">
+
+      <h2 className="border-b border-zinc-800 pb-3 text-xl font-bold text-emerald-300">
+        / principles
+      </h2>
+
+      <ul className="mt-5 space-y-3 text-sm text-zinc-400">
+        <li>→ Keep domain logic independent from delivery frameworks.</li>
+        <li>→ Treat API and component contracts as first-class artifacts.</li>
+        <li>→ Prefer small modules with explicit dependencies.</li>
+        <li>→ Make documentation executable where practical.</li>
+        <li>→ Validate contracts before publication.</li>
+        <li>→ Optimize for readable systems, not dependency count.</li>
+      </ul>
+
+    </section>
+
+    <footer className="mt-12 border-t border-emerald-500/20 pt-5 text-xs text-zinc-600">
+      KAIROS · Event → Input → Trigger → Next task
+    </footer>
+
+  </main>
+
+</div>
