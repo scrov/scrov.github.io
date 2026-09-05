@@ -1,0 +1,25 @@
+---
+// src/layouts/CvLayout.astro
+
+import '../styles/style.css'
+
+const {
+  title = 'scrov · Software Engineer',
+  description = 'Fullstack software engineer building SSR PWAs, realtime systems, APIs, and documentation platforms.'
+} = Astro.props
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#030706" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+
+  <body>
+    <slot />
+  </body>
+</html>
