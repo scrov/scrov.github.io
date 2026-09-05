@@ -1,294 +1,338 @@
 ---
 title: scrov · Software Engineer
-description: Fullstack software engineer building SSR PWAs, realtime systems, APIs, and documentation platforms.
+description: Fullstack software engineering CV, architecture notes, API contract, and documentation index.
 ---
 
-<div className="min-h-screen bg-zinc-950 font-mono text-zinc-300">
+# <span className="terminal-prompt">scrov@github:~$</span> `whoami`
 
-  <main className="mx-auto max-w-5xl px-6 py-10">
+## Software Engineer · Fullstack Web · SSR/PWA · Realtime Systems
 
-    <header className="border border-emerald-500/30 bg-black p-8 shadow-[0_0_50px_rgba(16,185,129,0.08)]">
+> Engineering portfolio presented as a living technical specification.
 
-      <p className="text-sm text-emerald-400">
-        $ whoami
-      </p>
+I design web systems around **clear contracts, composable boundaries, observable runtimes, and documentation that stays close to the code**.
 
-      <h1 className="mt-3 text-4xl font-bold tracking-tight text-emerald-300 md:text-5xl">
-        scrov
-      </h1>
+The portfolio is intentionally built as a documentation system: Markdown and MDX form the authoring layer, **unified** supplies syntax-tree processing, **Astro** renders static or server-rendered content, **Angular** owns application UX, **NestJS** exposes typed backend capabilities, **EJS** handles server-side view composition where appropriate, and **Storybook** turns components into executable documentation.
 
-      <p className="mt-3 text-xl text-zinc-200">
-        Software Engineer
-      </p>
+## `KAIROS` architecture
 
-      <p className="mt-2 text-sm text-zinc-500">
-        Fullstack Web · SSR/PWA · Realtime Systems · API Architecture
-      </p>
+```text
+                         ┌─────────────────────────────┐
+                         │         README.mdx               │
+                         │       CV + system map            │
+                         └──────────────┬──────────────┘
+                                           │
+                         ┌──────────────▼──────────────┐
+                         │        MDX / Markdown             │
+                         │  prose + JSX + doc contracts      │
+                         └──────────────┬──────────────┘
+                                           │
+                      ┌─────────────────▼────────────────┐
+                      │            unified                     │
+                      │ parse → transform → serialize         │
+                      └───────────────┬───────────────────┘
+                                         │
+              ┌───────────────────────┼────────────────────────┐
+              │                           │                            │
+     ┌────────▼────────┐    ┌────────▼─────────┐    ┌────────▼────────┐
+     │      Astro          │    │ Storybook / MDX     │    │      EJS           │
+     │ site + SSR/SSG      │    │ component docs      │    │ view composition   │
+     └────────┬────────┘    └────────┬─────────┘     └────────┬────────┘
+              │                          │                            │
+              └──────────────┬───────┴───────────────┬───────┘
+                               │                            │
+                    ┌────────▼────────┐      ┌──────▼─────────┐
+                    │ Angular            │       │    NestJS API     │
+                    │ UX + state         │────▶│ modules/services │
+                    └─────────────────┘      └────────────────┘
+```
 
-      <p className="mt-6 max-w-3xl text-sm leading-7 text-zinc-400">
-        I design maintainable web systems around explicit contracts,
-        composable boundaries, realtime communication, and documentation
-        that stays close to the code.
-      </p>
+### Event → Input → Trigger → Next task
 
-      <nav className="mt-6 flex flex-wrap gap-3 text-xs">
-        <a
-          href="https://scrov.github.io"
-          className="border border-emerald-500/40 px-3 py-2 text-emerald-400 transition hover:border-emerald-400 hover:bg-emerald-500/10"
-        >
-          portfolio
-        </a>
+| Event | Input | Trigger | Next task |
+|---|---|---|---|
+| Visitor opens portfolio | URL + route | Astro page request | Render CV shell |
+| Visitor opens wiki node | slug | route resolver | Load MDX entry |
+| UI contract changes | Angular component | Storybook story | Update docs + visual regression |
+| API contract changes | OpenAPI schema | CI validation | Regenerate consumers |
+| Content changes | MDX | unified pipeline | Parse → transform → render |
 
-        <a
-          href="https://github.com/scrov/scrov.github.io"
-          className="border border-zinc-700 px-3 py-2 text-zinc-400 transition hover:border-emerald-500/40 hover:text-emerald-400"
-        >
-          github
-        </a>
+## Engineering profile
 
-        <a
-          href="/docs/wiki/"
-          className="border border-zinc-700 px-3 py-2 text-zinc-400 transition hover:border-emerald-500/40 hover:text-emerald-400"
-        >
-          wiki
-        </a>
+### Focus
 
-        <a
-          href="/openapi.yaml"
-          className="border border-zinc-700 px-3 py-2 text-zinc-400 transition hover:border-emerald-500/40 hover:text-emerald-400"
-        >
-          api
-        </a>
-      </nav>
+- **Frontend:** Angular, SSR, PWA, component architecture, Storybook, TypeScript
+- **Backend:** NestJS, modular services, validation, API contracts, integration boundaries
+- **Content engineering:** MDX, Markdown, unified, AST transforms, documentation pipelines
+- **Rendering:** Astro, SSR/SSG, EJS, progressive enhancement
+- **Architecture:** SOLID boundaries, DDD-aligned modules, dependency inversion, contract-first APIs
+- **Delivery:** reproducible builds, CI checks, versioned documentation, observable runtime boundaries
 
-    </header>
+### Working model
 
-    <section className="mt-6 grid gap-4 md:grid-cols-3">
+```text
+Domain
+  ↓
+Application use-cases
+  ↓
+Ports / contracts
+  ↓
+Adapters
+  ↓
+Infrastructure
+```
 
-      <article className="border border-emerald-500/20 bg-zinc-900/50 p-5">
-        <p className="text-xs uppercase tracking-widest text-emerald-400">
-          Frontend
-        </p>
-        <p className="mt-4 text-sm leading-6 text-zinc-300">
-          Angular · TypeScript · SSR · PWA · Storybook · Astro
-        </p>
-      </article>
+The same separation is applied to documentation:
 
-      <article className="border border-emerald-500/20 bg-zinc-900/50 p-5">
-        <p className="text-xs uppercase tracking-widest text-emerald-400">
-          Backend
-        </p>
-        <p className="mt-4 text-sm leading-6 text-zinc-300">
-          NestJS · REST · OpenAPI · modular services · validation
-        </p>
-      </article>
+```text
+Source MDX
+  ↓
+AST
+  ↓
+remark / rehype / custom transforms
+  ↓
+MDX runtime
+  ↓
+Astro or Storybook renderer
+  ↓
+Published wiki / portfolio / component docs
+```
 
-      <article className="border border-emerald-500/20 bg-zinc-900/50 p-5">
-        <p className="text-xs uppercase tracking-widest text-emerald-400">
-          Platform
-        </p>
-        <p className="mt-4 text-sm leading-6 text-zinc-300">
-          MDX · unified · EJS · CI/CD · containers · observability
-        </p>
-      </article>
+## Selected systems
 
-    </section>
+| System | Role | Evidence surface |
+|---|---|---|
+| Portfolio | CV + engineering narrative | `README.mdx` |
+| Documentation wiki | Architecture and API knowledge base | `docs/wiki/*.mdx` |
+| API contract | Stable machine-readable interface | `openapi.yaml` |
+| Component lab | UI behavior and executable documentation | Storybook MDX |
+| SSR shell | Fast first render and crawlable pages | Astro + Angular |
+| Template layer | Server-oriented presentation boundaries | EJS |
 
-    <section className="mt-10">
+## API contract
 
-      <h2 className="border-b border-zinc-800 pb-3 text-xl font-bold text-emerald-300">
-        / engineering profile
-      </h2>
+The API is documented as a contract rather than an implementation diary.
 
-      <div className="mt-5 overflow-hidden border border-zinc-800">
+### HTTP surface
 
-        <table className="w-full text-left text-sm">
-          <thead className="border-b border-zinc-800 bg-zinc-900">
-            <tr>
-              <th className="px-4 py-3 text-emerald-400">Area</th>
-              <th className="px-4 py-3 text-emerald-400">Practice</th>
-            </tr>
-          </thead>
+```http
+GET    /api/v1/health
+GET    /api/v1/profile
+GET    /api/v1/projects
+GET    /api/v1/wiki
+GET    /api/v1/wiki/{slug}
+POST   /api/v1/contact
+```
 
-          <tbody>
-            <tr className="border-b border-zinc-800">
-              <td className="px-4 py-3 text-zinc-400">Architecture</td>
-              <td className="px-4 py-3">SOLID · DDD · dependency inversion</td>
-            </tr>
+### Example response envelope
 
-            <tr className="border-b border-zinc-800">
-              <td className="px-4 py-3 text-zinc-400">APIs</td>
-              <td className="px-4 py-3">Contract-first · OpenAPI · versioning</td>
-            </tr>
+```json
+{
+  "data": {
+    "id": "project-001",
+    "type": "portfolio-project",
+    "attributes": {
+      "title": "Realtime Web Platform",
+      "status": "active"
+    }
+  },
+  "meta": {
+    "version": "1"
+  }
+}
+```
 
-            <tr className="border-b border-zinc-800">
-              <td className="px-4 py-3 text-zinc-400">UI</td>
-              <td className="px-4 py-3">Angular · SSR · hydration · PWA</td>
-            </tr>
+### NestJS module boundary
 
-            <tr className="border-b border-zinc-800">
-              <td className="px-4 py-3 text-zinc-400">Documentation</td>
-              <td className="px-4 py-3">MDX · unified AST · Storybook</td>
-            </tr>
+```ts
+import { Module } from '@nestjs/common';
 
-            <tr>
-              <td className="px-4 py-3 text-zinc-400">Delivery</td>
-              <td className="px-4 py-3">CI · reproducible builds · observability</td>
-            </tr>
-          </tbody>
-        </table>
+@Module({
+  imports: [],
+  controllers: [],
+  providers: [],
+  exports: []
+})
+export class PortfolioModule {}
+```
 
-      </div>
+NestJS modules encapsulate providers and expose selected providers as a public interface, making the module boundary a natural place to enforce dependency direction.
 
-    </section>
+## Angular SSR + PWA
 
-    <section className="mt-10">
+Angular is the application layer for interactive product experiences. The SSR shell should remain thin: route resolution, initial state, accessible markup, and hydration boundaries belong near the rendering edge; domain behavior belongs behind services and application ports.
 
-      <h2 className="border-b border-zinc-800 pb-3 text-xl font-bold text-emerald-300">
-        / architecture
-      </h2>
-
-      <pre className="mt-5 overflow-x-auto border border-zinc-800 bg-black p-5 text-xs leading-6 text-emerald-400">
-{`README.mdx
-    │
-    ▼
-MDX / Markdown
-    │
-    ▼
-unified AST
-    │
-    ├── transform
-    ├── validate
-    └── enrich
-    │
-    ▼
-Astro
-    │
-    ├── SSR / SSG
-    ├── Angular
-    └── Storybook
-    │
-    ▼
+```text
+Browser request
+      │
+      ▼
+Astro shell / SSR route
+      │
+      ▼
+Angular application
+      │
+      ├── signals / state
+      ├── route data
+      ├── API client
+      └── service worker
+      │
+      ▼
 NestJS API
-    │
-    ├── domain
-    ├── application
-    ├── ports
-    └── adapters`}
-      </pre>
+```
 
-    </section>
+The Angular + NestJS pairing is well suited to a monorepo when shared contracts and utility libraries need to stay synchronized across frontend and backend boundaries.
 
-    <section className="mt-10">
+## Astro as the document host
 
-      <h2 className="border-b border-zinc-800 pb-3 text-xl font-bold text-emerald-300">
-        / api
-      </h2>
+Astro supports Markdown directly and can add MDX through `@astrojs/mdx`, enabling Markdown content to contain JSX expressions and components. Its content collections can also load local Markdown or MDX entries through build-time loaders.
 
-      <div className="mt-5 border border-zinc-800 bg-black p-5 text-sm">
+That makes the wiki model straightforward:
 
-        <p className="text-emerald-400">HTTP surface</p>
+```text
+src/content/wiki/
+├── index.mdx
+├── architecture.mdx
+├── api.mdx
+├── ssr.mdx
+├── storybook.mdx
+└── templates.mdx
+```
 
-        <div className="mt-4 space-y-2 text-zinc-400">
-          <p><span className="text-emerald-300">GET</span> /api/v1/health</p>
-          <p><span className="text-emerald-300">GET</span> /api/v1/profile</p>
-          <p><span className="text-emerald-300">GET</span> /api/v1/projects</p>
-          <p><span className="text-emerald-300">GET</span> /api/v1/wiki</p>
-          <p><span className="text-emerald-300">GET</span> /api/v1/wiki/{'{slug}'}</p>
-          <p><span className="text-emerald-300">POST</span> /api/v1/contact</p>
-        </div>
+## unified document pipeline
 
-        <a
-          href="/openapi.yaml"
-          className="mt-5 inline-block text-xs text-emerald-400 underline decoration-emerald-500/30 underline-offset-4 hover:text-emerald-300"
-        >
-          view OpenAPI contract
-        </a>
+`unified` is the content-processing boundary. The portfolio treats prose like source code: parse it, transform it, validate it, then serialize it for the target runtime. Its transformer model is centered on syntax trees and supports asynchronous transformations through promises.
 
-      </div>
+```text
+MDX / Markdown
+      │
+      ▼
+mdast / hast
+      │
+      ├── lint
+      ├── normalize
+      ├── enrich metadata
+      ├── generate anchors
+      └── validate links
+      │
+      ▼
+Rendered documentation
+```
 
-    </section>
+## MDX composition
 
-    <section className="mt-10">
+MDX is used where documentation needs behavior or imported UI. It supports embedded components and injected component mappings, so the same authored document can become an interactive documentation page instead of a static wall of prose.
 
-      <h2 className="border-b border-zinc-800 pb-3 text-xl font-bold text-emerald-300">
-        / documentation system
-      </h2>
+```mdx
+# Component contract
 
-      <p className="mt-5 max-w-3xl text-sm leading-7 text-zinc-400">
-        MDX provides the authored document layer. unified provides AST
-        processing. Astro publishes the site. Storybook provides executable
-        component documentation. EJS remains a focused server-template
-        boundary.
-      </p>
+<details>
+  <summary>Open runtime notes</summary>
 
-      <div className="mt-5 grid gap-3 md:grid-cols-2">
+  The interface is documented beside the implementation.
+</details>
+```
 
-        <a
-          href="/docs/wiki/architecture/"
-          className="border border-zinc-800 p-4 transition hover:border-emerald-500/40"
-        >
-          <span className="text-emerald-400">Architecture</span>
-          <p className="mt-2 text-xs text-zinc-500">
-            Boundaries, modules, runtime flow.
-          </p>
-        </a>
+For the Astro site, keep the MDX source portable and push site-specific layout into wrappers and components. This avoids coupling the CV text to one renderer.
 
-        <a
-          href="/docs/wiki/api/"
-          className="border border-zinc-800 p-4 transition hover:border-emerald-500/40"
-        >
-          <span className="text-emerald-400">API</span>
-          <p className="mt-2 text-xs text-zinc-500">
-            Contracts and integration model.
-          </p>
-        </a>
+## Storybook as executable documentation
 
-        <a
-          href="/docs/wiki/ssr/"
-          className="border border-zinc-800 p-4 transition hover:border-emerald-500/40"
-        >
-          <span className="text-emerald-400">SSR + PWA</span>
-          <p className="mt-2 text-xs text-zinc-500">
-            Astro, Angular SSR, hydration.
-          </p>
-        </a>
+Storybook MDX supports documentation alongside component stories, and its docs tooling can render imported Markdown as part of a documentation page. Angular projects can configure Storybook with the Angular framework adapter and options for styles, assets, source maps, and related integration concerns.
 
-        <a
-          href="/docs/wiki/storybook/"
-          className="border border-zinc-800 p-4 transition hover:border-emerald-500/40"
-        >
-          <span className="text-emerald-400">Storybook</span>
-          <p className="mt-2 text-xs text-zinc-500">
-            Executable component documentation.
-          </p>
-        </a>
+```mdx
+import { Meta } from '@storybook/blocks';
 
-      </div>
+<Meta title="Portfolio/Architecture" />
 
-    </section>
+# Architecture
 
-    <section className="mt-10">
+The component contract is documented beside the rendered story.
+```
 
-      <h2 className="border-b border-zinc-800 pb-3 text-xl font-bold text-emerald-300">
-        / principles
-      </h2>
+## EJS boundary
 
-      <ul className="mt-5 space-y-3 text-sm text-zinc-400">
-        <li>→ Keep domain logic independent from delivery frameworks.</li>
-        <li>→ Treat API and component contracts as first-class artifacts.</li>
-        <li>→ Prefer small modules with explicit dependencies.</li>
-        <li>→ Make documentation executable where practical.</li>
-        <li>→ Validate contracts before publication.</li>
-        <li>→ Optimize for readable systems, not dependency count.</li>
-      </ul>
+EJS belongs at the server/template boundary. It should render data already prepared by application services rather than accumulating business logic inside views.
 
-    </section>
+```ejs
+<main class="terminal-panel">
+  <h1><%= profile.title %></h1>
+  <p><%= profile.summary %></p>
+</main>
+```
 
-    <footer className="mt-12 border-t border-emerald-500/20 pt-5 text-xs text-zinc-600">
-      KAIROS · Event → Input → Trigger → Next task
-    </footer>
+That separation keeps EJS useful for server-oriented presentation while MDX remains the documentation/content format.
 
-  </main>
+## Wiki map
 
-</div>
+| Node | Purpose |
+|---|---|
+| [Architecture](docs/wiki/architecture.mdx) | Boundaries, module graph, runtime flow |
+| [API](docs/wiki/api.mdx) | Endpoint contracts and OpenAPI model |
+| [SSR + PWA](docs/wiki/ssr.mdx) | Astro, Angular, hydration, service-worker boundaries |
+| [Storybook](docs/wiki/storybook.mdx) | Component docs, CSF/MDX relationship |
+| [Templates](docs/wiki/templates.mdx) | EJS and server-side rendering boundaries |
+| [Theme](docs/wiki/theme.mdx) | Black-green presentation contract |
+
+## Repository topology
+
+```text
+.
+├── README.md
+├── README.mdx
+├── openapi.yaml
+├── docs/
+│   └── wiki/
+│       ├── index.mdx
+│       ├── architecture.mdx
+│       ├── api.mdx
+│       ├── ssr.mdx
+│       ├── storybook.mdx
+│       └── templates.mdx
+└── src/
+    └── ...
+```
+
+## Delivery blueprint
+
+### Phase 1 · Contract
+
+`README.mdx` defines the public narrative and links to stable wiki nodes. `openapi.yaml` defines machine-readable HTTP contracts.
+
+### Phase 2 · Documentation runtime
+
+Astro owns the published documentation route. MDX files become the canonical authored pages, with content collections providing typed metadata and predictable loading.
+
+### Phase 3 · UI system
+
+Angular owns interactive application surfaces. Storybook owns the component laboratory and executable documentation.
+
+### Phase 4 · Backend
+
+NestJS exposes domain modules and application services through explicit controllers and providers.
+
+### Phase 5 · Integration
+
+A CI pipeline validates Markdown/MDX, OpenAPI, TypeScript, Storybook builds, and the Astro site before publication.
+
+## Documentation references
+
+- [unified](https://github.com/unifiedjs/unified)
+- [EJS](https://github.com/mde/ejs)
+- [MDX embedding](https://mdxjs.com/guides/embed/)
+- [MDX component injection](https://mdxjs.com/guides/injecting-components/)
+- [Storybook MDX](https://storybook.js.org/docs/writing-docs/mdx)
+- [Storybook Angular](https://storybook.js.org/docs/get-started/frameworks/angular)
+- [Storybook Astro](https://github.com/storybook-astro/storybook-astro)
+- [Astro Markdown content](https://docs.astro.build/en/guides/markdown-content/)
+- [Analog Astro + Angular](https://analogjs.org/docs/packages/astro-angular/overview)
+- [Angular + NestJS + Nx](https://angular.love/full-stack-apps-with-angular-and-nestjs-in-an-nx-monorepo)
+
+## Contact surface
+
+```text
+name      = scrov
+role      = Software Engineer
+site      = https://scrov.github.io
+source    = https://github.com/scrov/scrov.github.io
+status    = building
+```
+
+> The repository is the portfolio; the wiki is the engineering notebook; the API contract is the boundary; the component library is the proof.

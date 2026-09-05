@@ -1,0 +1,339 @@
+<!DOCTYPE html><link rel="stylesheet" href="/_astro/index.BmAVGTu2.css"><meta charset="utf-8"/><h1 id="scrovgithub-whoami"><span class="terminal-prompt">scrov@github:~$</span> <code>whoami</code></h1>
+<h2 id="software-engineer--fullstack-web--ssrpwa--realtime-systems">Software Engineer · Fullstack Web · SSR/PWA · Realtime Systems</h2>
+<blockquote>
+<p>Engineering portfolio presented as a living technical specification.</p>
+</blockquote>
+<p>I design web systems around <strong>clear contracts, composable boundaries, observable runtimes, and documentation that stays close to the code</strong>.</p>
+<p>The portfolio is intentionally built as a documentation system: Markdown and MDX form the authoring layer, <strong>unified</strong> supplies syntax-tree processing, <strong>Astro</strong> renders static or server-rendered content, <strong>Angular</strong> owns application UX, <strong>NestJS</strong> exposes typed backend capabilities, <strong>EJS</strong> handles server-side view composition where appropriate, and <strong>Storybook</strong> turns components into executable documentation.</p>
+<h2 id="kairos-architecture"><code>KAIROS</code> architecture</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="text"><code><span class="line"><span>                         ┌─────────────────────────────┐</span></span>
+<span class="line"><span>                         │         README.mdx               │</span></span>
+<span class="line"><span>                         │       CV + system map            │</span></span>
+<span class="line"><span>                         └──────────────┬──────────────┘</span></span>
+<span class="line"><span>                                           │</span></span>
+<span class="line"><span>                         ┌──────────────▼──────────────┐</span></span>
+<span class="line"><span>                         │        MDX / Markdown             │</span></span>
+<span class="line"><span>                         │  prose + JSX + doc contracts      │</span></span>
+<span class="line"><span>                         └──────────────┬──────────────┘</span></span>
+<span class="line"><span>                                           │</span></span>
+<span class="line"><span>                      ┌─────────────────▼────────────────┐</span></span>
+<span class="line"><span>                      │            unified                     │</span></span>
+<span class="line"><span>                      │ parse → transform → serialize         │</span></span>
+<span class="line"><span>                      └───────────────┬───────────────────┘</span></span>
+<span class="line"><span>                                         │</span></span>
+<span class="line"><span>              ┌───────────────────────┼────────────────────────┐</span></span>
+<span class="line"><span>              │                           │                            │</span></span>
+<span class="line"><span>     ┌────────▼────────┐    ┌────────▼─────────┐    ┌────────▼────────┐</span></span>
+<span class="line"><span>     │      Astro          │    │ Storybook / MDX     │    │      EJS           │</span></span>
+<span class="line"><span>     │ site + SSR/SSG      │    │ component docs      │    │ view composition   │</span></span>
+<span class="line"><span>     └────────┬────────┘    └────────┬─────────┘     └────────┬────────┘</span></span>
+<span class="line"><span>              │                          │                            │</span></span>
+<span class="line"><span>              └──────────────┬───────┴───────────────┬───────┘</span></span>
+<span class="line"><span>                               │                            │</span></span>
+<span class="line"><span>                    ┌────────▼────────┐      ┌──────▼─────────┐</span></span>
+<span class="line"><span>                    │ Angular            │       │    NestJS API     │</span></span>
+<span class="line"><span>                    │ UX + state         │────▶│ modules/services │</span></span>
+<span class="line"><span>                    └─────────────────┘      └────────────────┘</span></span></code></pre>
+<h3 id="event--input--trigger--next-task">Event → Input → Trigger → Next task</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Event</th><th>Input</th><th>Trigger</th><th>Next task</th></tr></thead><tbody><tr><td>Visitor opens portfolio</td><td>URL + route</td><td>Astro page request</td><td>Render CV shell</td></tr><tr><td>Visitor opens wiki node</td><td>slug</td><td>route resolver</td><td>Load MDX entry</td></tr><tr><td>UI contract changes</td><td>Angular component</td><td>Storybook story</td><td>Update docs + visual regression</td></tr><tr><td>API contract changes</td><td>OpenAPI schema</td><td>CI validation</td><td>Regenerate consumers</td></tr><tr><td>Content changes</td><td>MDX</td><td>unified pipeline</td><td>Parse → transform → render</td></tr></tbody></table>
+<h2 id="engineering-profile">Engineering profile</h2>
+<h3 id="focus">Focus</h3>
+<ul>
+<li><strong>Frontend:</strong> Angular, SSR, PWA, component architecture, Storybook, TypeScript</li>
+<li><strong>Backend:</strong> NestJS, modular services, validation, API contracts, integration boundaries</li>
+<li><strong>Content engineering:</strong> MDX, Markdown, unified, AST transforms, documentation pipelines</li>
+<li><strong>Rendering:</strong> Astro, SSR/SSG, EJS, progressive enhancement</li>
+<li><strong>Architecture:</strong> SOLID boundaries, DDD-aligned modules, dependency inversion, contract-first APIs</li>
+<li><strong>Delivery:</strong> reproducible builds, CI checks, versioned documentation, observable runtime boundaries</li>
+</ul>
+<h3 id="working-model">Working model</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="text"><code><span class="line"><span>Domain</span></span>
+<span class="line"><span>  ↓</span></span>
+<span class="line"><span>Application use-cases</span></span>
+<span class="line"><span>  ↓</span></span>
+<span class="line"><span>Ports / contracts</span></span>
+<span class="line"><span>  ↓</span></span>
+<span class="line"><span>Adapters</span></span>
+<span class="line"><span>  ↓</span></span>
+<span class="line"><span>Infrastructure</span></span></code></pre>
+<p>The same separation is applied to documentation:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="text"><code><span class="line"><span>Source MDX</span></span>
+<span class="line"><span>  ↓</span></span>
+<span class="line"><span>AST</span></span>
+<span class="line"><span>  ↓</span></span>
+<span class="line"><span>remark / rehype / custom transforms</span></span>
+<span class="line"><span>  ↓</span></span>
+<span class="line"><span>MDX runtime</span></span>
+<span class="line"><span>  ↓</span></span>
+<span class="line"><span>Astro or Storybook renderer</span></span>
+<span class="line"><span>  ↓</span></span>
+<span class="line"><span>Published wiki / portfolio / component docs</span></span></code></pre>
+<h2 id="selected-systems">Selected systems</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>System</th><th>Role</th><th>Evidence surface</th></tr></thead><tbody><tr><td>Portfolio</td><td>CV + engineering narrative</td><td><code>README.mdx</code></td></tr><tr><td>Documentation wiki</td><td>Architecture and API knowledge base</td><td><code>docs/wiki/*.mdx</code></td></tr><tr><td>API contract</td><td>Stable machine-readable interface</td><td><code>openapi.yaml</code></td></tr><tr><td>Component lab</td><td>UI behavior and executable documentation</td><td>Storybook MDX</td></tr><tr><td>SSR shell</td><td>Fast first render and crawlable pages</td><td>Astro + Angular</td></tr><tr><td>Template layer</td><td>Server-oriented presentation boundaries</td><td>EJS</td></tr></tbody></table>
+<h2 id="api-contract">API contract</h2>
+<p>The API is documented as a contract rather than an implementation diary.</p>
+<h3 id="http-surface">HTTP surface</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="http"><code><span class="line"><span style="color:#F97583">GET</span><span style="color:#E1E4E8">    /api/v1/health</span></span>
+<span class="line"><span style="color:#F97583">GET</span><span style="color:#E1E4E8">    /api/v1/profile</span></span>
+<span class="line"><span style="color:#F97583">GET</span><span style="color:#E1E4E8">    /api/v1/projects</span></span>
+<span class="line"><span style="color:#F97583">GET</span><span style="color:#E1E4E8">    /api/v1/wiki</span></span>
+<span class="line"><span style="color:#F97583">GET</span><span style="color:#E1E4E8">    /api/v1/wiki/{slug}</span></span>
+<span class="line"><span style="color:#F97583">POST</span><span style="color:#E1E4E8">   /api/v1/contact</span></span></code></pre>
+<h3 id="example-response-envelope">Example response envelope</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;data&quot;</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;id&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;project-001&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;type&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;portfolio-project&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;attributes&quot;</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">      &quot;title&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;Realtime Web Platform&quot;</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">      &quot;status&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;active&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span>
+<span class="line"><span style="color:#E1E4E8">  },</span></span>
+<span class="line"><span style="color:#79B8FF">  &quot;meta&quot;</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">    &quot;version&quot;</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">&quot;1&quot;</span></span>
+<span class="line"><span style="color:#E1E4E8">  }</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="nestjs-module-boundary">NestJS module boundary</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="ts"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { Module } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> &#39;@nestjs/common&#39;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">@</span><span style="color:#B392F0">Module</span><span style="color:#E1E4E8">({</span></span>
+<span class="line"><span style="color:#E1E4E8">  imports: [],</span></span>
+<span class="line"><span style="color:#E1E4E8">  controllers: [],</span></span>
+<span class="line"><span style="color:#E1E4E8">  providers: [],</span></span>
+<span class="line"><span style="color:#E1E4E8">  exports: []</span></span>
+<span class="line"><span style="color:#E1E4E8">})</span></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> class</span><span style="color:#B392F0"> PortfolioModule</span><span style="color:#E1E4E8"> {}</span></span></code></pre>
+<p>NestJS modules encapsulate providers and expose selected providers as a public interface, making the module boundary a natural place to enforce dependency direction.</p>
+<h2 id="angular-ssr--pwa">Angular SSR + PWA</h2>
+<p>Angular is the application layer for interactive product experiences. The SSR shell should remain thin: route resolution, initial state, accessible markup, and hydration boundaries belong near the rendering edge; domain behavior belongs behind services and application ports.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="text"><code><span class="line"><span>Browser request</span></span>
+<span class="line"><span>      │</span></span>
+<span class="line"><span>      ▼</span></span>
+<span class="line"><span>Astro shell / SSR route</span></span>
+<span class="line"><span>      │</span></span>
+<span class="line"><span>      ▼</span></span>
+<span class="line"><span>Angular application</span></span>
+<span class="line"><span>      │</span></span>
+<span class="line"><span>      ├── signals / state</span></span>
+<span class="line"><span>      ├── route data</span></span>
+<span class="line"><span>      ├── API client</span></span>
+<span class="line"><span>      └── service worker</span></span>
+<span class="line"><span>      │</span></span>
+<span class="line"><span>      ▼</span></span>
+<span class="line"><span>NestJS API</span></span></code></pre>
+<p>The Angular + NestJS pairing is well suited to a monorepo when shared contracts and utility libraries need to stay synchronized across frontend and backend boundaries.</p>
+<h2 id="astro-as-the-document-host">Astro as the document host</h2>
+<p>Astro supports Markdown directly and can add MDX through <code>@astrojs/mdx</code>, enabling Markdown content to contain JSX expressions and components. Its content collections can also load local Markdown or MDX entries through build-time loaders.</p>
+<p>That makes the wiki model straightforward:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="text"><code><span class="line"><span>src/content/wiki/</span></span>
+<span class="line"><span>├── index.mdx</span></span>
+<span class="line"><span>├── architecture.mdx</span></span>
+<span class="line"><span>├── api.mdx</span></span>
+<span class="line"><span>├── ssr.mdx</span></span>
+<span class="line"><span>├── storybook.mdx</span></span>
+<span class="line"><span>└── templates.mdx</span></span></code></pre>
+<h2 id="unified-document-pipeline">unified document pipeline</h2>
+<p><code>unified</code> is the content-processing boundary. The portfolio treats prose like source code: parse it, transform it, validate it, then serialize it for the target runtime. Its transformer model is centered on syntax trees and supports asynchronous transformations through promises.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="text"><code><span class="line"><span>MDX / Markdown</span></span>
+<span class="line"><span>      │</span></span>
+<span class="line"><span>      ▼</span></span>
+<span class="line"><span>mdast / hast</span></span>
+<span class="line"><span>      │</span></span>
+<span class="line"><span>      ├── lint</span></span>
+<span class="line"><span>      ├── normalize</span></span>
+<span class="line"><span>      ├── enrich metadata</span></span>
+<span class="line"><span>      ├── generate anchors</span></span>
+<span class="line"><span>      └── validate links</span></span>
+<span class="line"><span>      │</span></span>
+<span class="line"><span>      ▼</span></span>
+<span class="line"><span>Rendered documentation</span></span></code></pre>
+<h2 id="mdx-composition">MDX composition</h2>
+<p>MDX is used where documentation needs behavior or imported UI. It supports embedded components and injected component mappings, so the same authored document can become an interactive documentation page instead of a static wall of prose.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="mdx"><code><span class="line"><span style="color:#79B8FF;font-weight:bold"># Component contract</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">details</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#E1E4E8">  &lt;</span><span style="color:#85E89D">summary</span><span style="color:#E1E4E8">&gt;Open runtime notes&lt;/</span><span style="color:#85E89D">summary</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">  The interface is documented beside the implementation.</span></span>
+<span class="line"><span style="color:#E1E4E8">&lt;/</span><span style="color:#85E89D">details</span><span style="color:#E1E4E8">&gt;</span></span></code></pre>
+<p>For the Astro site, keep the MDX source portable and push site-specific layout into wrappers and components. This avoids coupling the CV text to one renderer.</p>
+<h2 id="storybook-as-executable-documentation">Storybook as executable documentation</h2>
+<p>Storybook MDX supports documentation alongside component stories, and its docs tooling can render imported Markdown as part of a documentation page. Angular projects can configure Storybook with the Angular framework adapter and options for styles, assets, source maps, and related integration concerns.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="mdx"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { Meta } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> &#39;@storybook/blocks&#39;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#79B8FF">Meta</span><span style="color:#B392F0"> title</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;Portfolio/Architecture&quot;</span><span style="color:#E1E4E8"> /&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#79B8FF;font-weight:bold"># Architecture</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">The component contract is documented beside the rendered story.</span></span></code></pre>
+<h2 id="ejs-boundary">EJS boundary</h2>
+<p>EJS belongs at the server/template boundary. It should render data already prepared by application services rather than accumulating business logic inside views.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="plaintext"><code><span class="line"><span>&lt;main class=&quot;terminal-panel&quot;&gt;</span></span>
+<span class="line"><span>  &lt;h1&gt;&lt;%= profile.title %&gt;&lt;/h1&gt;</span></span>
+<span class="line"><span>  &lt;p&gt;&lt;%= profile.summary %&gt;&lt;/p&gt;</span></span>
+<span class="line"><span>&lt;/main&gt;</span></span></code></pre>
+<p>That separation keeps EJS useful for server-oriented presentation while MDX remains the documentation/content format.</p>
+<h2 id="wiki-map">Wiki map</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Node</th><th>Purpose</th></tr></thead><tbody><tr><td><a href="docs/wiki/architecture.mdx">Architecture</a></td><td>Boundaries, module graph, runtime flow</td></tr><tr><td><a href="docs/wiki/api.mdx">API</a></td><td>Endpoint contracts and OpenAPI model</td></tr><tr><td><a href="docs/wiki/ssr.mdx">SSR + PWA</a></td><td>Astro, Angular, hydration, service-worker boundaries</td></tr><tr><td><a href="docs/wiki/storybook.mdx">Storybook</a></td><td>Component docs, CSF/MDX relationship</td></tr><tr><td><a href="docs/wiki/templates.mdx">Templates</a></td><td>EJS and server-side rendering boundaries</td></tr><tr><td><a href="docs/wiki/theme.mdx">Theme</a></td><td>Black-green presentation contract</td></tr></tbody></table>
+<h2 id="repository-topology">Repository topology</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="text"><code><span class="line"><span>.</span></span>
+<span class="line"><span>├── README.md</span></span>
+<span class="line"><span>├── README.mdx</span></span>
+<span class="line"><span>├── openapi.yaml</span></span>
+<span class="line"><span>├── docs/</span></span>
+<span class="line"><span>│   └── wiki/</span></span>
+<span class="line"><span>│       ├── index.mdx</span></span>
+<span class="line"><span>│       ├── architecture.mdx</span></span>
+<span class="line"><span>│       ├── api.mdx</span></span>
+<span class="line"><span>│       ├── ssr.mdx</span></span>
+<span class="line"><span>│       ├── storybook.mdx</span></span>
+<span class="line"><span>│       └── templates.mdx</span></span>
+<span class="line"><span>└── src/</span></span>
+<span class="line"><span>    └── ...</span></span></code></pre>
+<h2 id="delivery-blueprint">Delivery blueprint</h2>
+<h3 id="phase-1--contract">Phase 1 · Contract</h3>
+<p><code>README.mdx</code> defines the public narrative and links to stable wiki nodes. <code>openapi.yaml</code> defines machine-readable HTTP contracts.</p>
+<h3 id="phase-2--documentation-runtime">Phase 2 · Documentation runtime</h3>
+<p>Astro owns the published documentation route. MDX files become the canonical authored pages, with content collections providing typed metadata and predictable loading.</p>
+<h3 id="phase-3--ui-system">Phase 3 · UI system</h3>
+<p>Angular owns interactive application surfaces. Storybook owns the component laboratory and executable documentation.</p>
+<h3 id="phase-4--backend">Phase 4 · Backend</h3>
+<p>NestJS exposes domain modules and application services through explicit controllers and providers.</p>
+<h3 id="phase-5--integration">Phase 5 · Integration</h3>
+<p>A CI pipeline validates Markdown/MDX, OpenAPI, TypeScript, Storybook builds, and the Astro site before publication.</p>
+<h2 id="documentation-references">Documentation references</h2>
+<ul>
+<li><a href="https://github.com/unifiedjs/unified">unified</a></li>
+<li><a href="https://github.com/mde/ejs">EJS</a></li>
+<li><a href="https://mdxjs.com/guides/embed/">MDX embedding</a></li>
+<li><a href="https://mdxjs.com/guides/injecting-components/">MDX component injection</a></li>
+<li><a href="https://storybook.js.org/docs/writing-docs/mdx">Storybook MDX</a></li>
+<li><a href="https://storybook.js.org/docs/get-started/frameworks/angular">Storybook Angular</a></li>
+<li><a href="https://github.com/storybook-astro/storybook-astro">Storybook Astro</a></li>
+<li><a href="https://docs.astro.build/en/guides/markdown-content/">Astro Markdown content</a></li>
+<li><a href="https://analogjs.org/docs/packages/astro-angular/overview">Analog Astro + Angular</a></li>
+<li><a href="https://angular.love/full-stack-apps-with-angular-and-nestjs-in-an-nx-monorepo">Angular + NestJS + Nx</a></li>
+</ul>
+<h2 id="contact-surface">Contact surface</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="text"><code><span class="line"><span>name      = scrov</span></span>
+<span class="line"><span>role      = Software Engineer</span></span>
+<span class="line"><span>site      = https://scrov.github.io</span></span>
+<span class="line"><span>source    = https://github.com/scrov/scrov.github.io</span></span>
+<span class="line"><span>status    = building</span></span></code></pre>
+<blockquote>
+<p>The repository is the portfolio; the wiki is the engineering notebook; the API contract is the boundary; the component library is the proof.</p>
+</blockquote>
