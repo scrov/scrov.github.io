@@ -17,33 +17,33 @@ The portfolio is intentionally built as a documentation system: Markdown and MDX
 
 ```text
                          ┌─────────────────────────────┐
-                         │         README.mdx           │
-                         │       CV + system map        │
+                         │         README.mdx               │
+                         │       CV + system map            │
                          └──────────────┬──────────────┘
-                                        │
+                                           │
                          ┌──────────────▼──────────────┐
-                         │        MDX / Markdown        │
-                         │  prose + JSX + doc contracts │
+                         │        MDX / Markdown             │
+                         │  prose + JSX + doc contracts      │
                          └──────────────┬──────────────┘
-                                        │
-                      ┌─────────────────▼─────────────────┐
-                      │             unified               │
-                      │ parse → transform → serialize     │
+                                           │
+                      ┌─────────────────▼────────────────┐
+                      │            unified                     │
+                      │ parse → transform → serialize         │
                       └───────────────┬───────────────────┘
-                                      │
+                                         │
               ┌───────────────────────┼────────────────────────┐
-              │                       │                        │
+              │                           │                            │
      ┌────────▼────────┐    ┌────────▼─────────┐    ┌────────▼────────┐
-     │      Astro      │    │ Storybook / MDX  │    │      EJS         │
-     │ site + SSR/SSG  │    │ component docs   │    │ view composition │
-     └────────┬────────┘    └────────┬─────────┘    └────────┬────────┘
-              │                      │                       │
+     │      Astro          │    │ Storybook / MDX     │    │      EJS           │
+     │ site + SSR/SSG      │    │ component docs      │    │ view composition   │
+     └────────┬────────┘    └────────┬─────────┘     └────────┬────────┘
+              │                          │                            │
               └──────────────┬───────┴───────────────┬───────┘
-                             │                       │
-                    ┌────────▼────────┐     ┌──────▼─────────┐
-                    │ Angular SSR/PWA │     │    NestJS API   │
-                    │ UX + state      │────▶│ modules/services│
-                    └─────────────────┘     └────────────────┘
+                               │                            │
+                    ┌────────▼────────┐      ┌──────▼─────────┐
+                    │ Angular            │       │    NestJS API     │
+                    │ UX + state         │────▶│ modules/services │
+                    └─────────────────┘      └────────────────┘
 ```
 
 ### Event → Input → Trigger → Next task
